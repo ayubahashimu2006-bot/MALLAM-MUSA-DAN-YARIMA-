@@ -11,6 +11,7 @@ background-size:cover;
 background-attachment:fixed;
 color:#fff;
 transition:0.5s;
+scroll-behavior:smooth;
 }
 
 nav{
@@ -26,33 +27,61 @@ select,button{
 padding:6px 8px;border-radius:6px;border:none;cursor:pointer;
 }
 
-.hero{text-align:center;padding:80px 20px 40px;}
-.hero h1{font-size:40px;}
-.hero p{margin-top:10px;opacity:0.9;}
+.hero{text-align:center;padding:90px 20px 60px;animation:fadeIn 1.5s ease;}
+.hero h1{font-size:42px;font-weight:700;}
+.hero p{margin-top:10px;opacity:0.9;font-size:18px;}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
 
 .container{max-width:1100px;margin:auto;padding:20px;}
 
 .card{
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(12px);
-padding:20px;border-radius:15px;margin:15px 0;
+padding:22px;border-radius:16px;margin:15px 0;
 box-shadow:0 10px 30px rgba(0,0,0,0.4);
+animation:fadeIn 1s ease;
 }
 
-h2{margin-bottom:10px;}
+h2{margin-bottom:10px;font-weight:600;}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
 
 .btn{
 display:inline-block;background:#22c55e;color:white;
-padding:10px 15px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:10px;
+padding:11px 16px;border-radius:10px;text-decoration:none;font-weight:600;margin-top:10px;
+transition:0.3s;
 }
+
+.btn:hover{transform:scale(1.05);}
 
 .btn.blue{background:#2563eb;}
 
 .float{
-position:fixed;bottom:20px;right:20px;background:#22c55e;
-padding:15px;border-radius:50px;text-decoration:none;color:white;font-weight:700;
+position:fixed;
+bottom:20px;
+right:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.float a{
+background:#22c55e;
+padding:12px 14px;
+border-radius:50px;
+text-decoration:none;
+color:#fff;
+font-weight:700;
+box-shadow:0 10px 25px rgba(0,0,0,.4);
+text-align:center;
+}
+
+.testimonial{
+margin-bottom:10px;
+padding:10px;
+border-left:3px solid #22c55e;
 }
 
 footer{text-align:center;padding:20px;opacity:0.7;}
@@ -66,9 +95,9 @@ footer{text-align:center;padding:20px;opacity:0.7;}
 <option value="fr">FR</option>
 <option value="ar">AR</option>
 </select><select onchange="changeBg(this.value)">
-<option value="1">Background 1</option>
-<option value="2">Background 2</option>
-<option value="3">Background 3</option>
+<option value="1">BG 1</option>
+<option value="2">BG 2</option>
+<option value="3">BG 3</option>
 </select>
 </div>
 </nav><div class="hero">
@@ -76,6 +105,8 @@ footer{text-align:center;padding:20px;opacity:0.7;}
 <p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
 </div><div class="container"><div class="card">
 <h2 id="aboutTitle">About</h2>
+<p id="about">A trusted spiritual guide offering prayers, counseling and guidance to people seeking peace and direction in life.</p>
+<p style="margin-top:10px;font-size:14px;opacity:.8">Serving clients with honesty, faith and dedication across Nigeria.</p>
 <p id="about">A trusted spiritual guide offering prayers, counseling and guidance to people seeking peace and direction in life.</p>
 </div><div class="card">
 <h2 id="serviceTitle">Services</h2>
@@ -88,11 +119,14 @@ footer{text-align:center;padding:20px;opacity:0.7;}
 </ul>
 </div><div class="card">
 <h2 id="prayerTitle">Daily Prayer</h2>
+<p style="margin-bottom:10px">Ya Allah grant us peace, protection, guidance and success. Ameen.</p>
+<p style="font-size:14px;opacity:.8">Qur'an Reminder: "Indeed, in the remembrance of Allah do hearts find rest."</p>
 <p id="prayer">Ya Allah grant us peace, guidance and success. Ameen.</p>
 </div><div class="card grid">
 <div>
 <h2 id="contactTitle">Contact</h2>
-<a class="btn" href="https://wa.me/2349125087454">Chat on WhatsApp</a><br>
+<a class="btn" href="https://wa.me/2349125087454">Chat on WhatsApp (Line 1)</a><br>
+<a class="btn" href="https://wa.me/2348131920605">Chat on WhatsApp (Line 2)</a><br>
 <a class="btn blue" href="tel:+2347067379998">Call Now</a><br>
 <a class="btn" href="mailto:musadanyarima@gmail.com">Send Email</a>
 </div><div>
@@ -101,21 +135,22 @@ footer{text-align:center;padding:20px;opacity:0.7;}
 </div>
 </div><div class="card">
 <h2 id="testTitle">Testimonials</h2>
-<ul id="testimonials">
-<li>Amina Hassan - He brought peace into my life.</li>
-<li>Ibrahim Yusuf - Solved my family issues.</li>
-<li>Fatima Ali - Very helpful and kind.</li>
-<li>Usman Bello - Guidance changed my life.</li>
-<li>Zainab Sani - I found clarity and peace.</li>
-<li>Hassan Umar - Strong spiritual support.</li>
-<li>Maryam Yusuf - Very respectful and honest.</li>
-<li>Aliyu Musa - Helped my family unity.</li>
-<li>Hafsat Abdullahi - Truly life changing.</li>
-<li>Yusuf Ahmad - Highly recommended.</li>
-</ul>
-</div></div><a class="float" href="https://wa.me/2349125087454">💬 Chat</a>
-
-<footer>© 2026 Mallam Musa Dan Yarima</footer><script>
+<div id="testimonials">
+<div class="testimonial">Amina Hassan - He brought peace into my life.</div>
+<div class="testimonial">Ibrahim Yusuf - Solved my family issues.</div>
+<div class="testimonial">Fatima Ali - Very helpful and kind.</div>
+<div class="testimonial">Usman Bello - Guidance changed my life.</div>
+<div class="testimonial">Zainab Sani - I found clarity and peace.</div>
+<div class="testimonial">Hassan Umar - Strong spiritual support.</div>
+<div class="testimonial">Maryam Yusuf - Very respectful and honest.</div>
+<div class="testimonial">Aliyu Musa - Helped my family unity.</div>
+<div class="testimonial">Hafsat Abdullahi - Truly life changing.</div>
+<div class="testimonial">Yusuf Ahmad - Highly recommended.</div>
+</div>
+</div></div><div class="float">
+<a href="https://wa.me/2349125087454">💬 Chat (912)</a>
+<a href="https://wa.me/2348131920605">💬 Chat (813)</a>
+</div><footer>© 2026 Mallam Musa Dan Yarima</footer><script>
 function changeBg(val){
 let imgs={
 1:"https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80",
