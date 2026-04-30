@@ -28,7 +28,16 @@ If you are seeking spiritual guidance or have questions about how Mallam Musa Da
 
 ### Contact Information
 
-*(Contact details to be added)*
+**WhatsApp:**
+- [📱 Chat on WhatsApp - +234 912 508 7454](https://wa.me/2349125087454)
+- [📱 Chat on WhatsApp - +234 813 192 0605](https://wa.me/2348131920605)
+
+**Phone Numbers:**
+- +234 912 508 7454
+- +234 813 192 0605
+
+**Email:**
+- 📧 [musadanyarima@gmail.com](mailto:musadanyarima@gmail.com)
 
 ## Testimonials
 
