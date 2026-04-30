@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mallam Musa Dan Yarima - Spiritual Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav h1 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Social Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .stat-card .label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Section Headers */
+        h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin: 2rem 0 1.5rem 0;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* Content Sections */
+        .section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section ul li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .section ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Buttons */
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #20ba5a;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-email {
+            background: #EA4335;
+            color: white;
+        }
+
+        .btn-email:hover {
+            background: #d33425;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
+        }
+
+        .btn-phone {
+            background: #0084FF;
+            color: white;
+        }
+
+        .btn-phone:hover {
+            background: #0073e6;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 132, 255, 0.4);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .testimonial-name {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-text {
+            color: #555;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-top: 0.5rem;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-radius: 10px;
+        }
+
+        .mission-statement {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <h1>🕌 MALLAM MUSA DAN YARIMA 🕌</h1>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Welcome to Spiritual Guidance</h1>
+            <p>Mallam Musa Dan Yarima is a dedicated spiritual guide known for helping individuals and families find solutions to personal and spiritual challenges. With years of experience, he provides guidance, prayer support, and thoughtful advice to those seeking peace, clarity, and direction in life.</p>
+            
+            <!-- Contact Buttons -->
+            <div class="contact-buttons">
+                <a href="https://wa.me/2349125087454" class="btn btn-whatsapp" target="_blank">
+                    <span>📱</span> WhatsApp (+234 912 508 7454)
+                </a>
+                <a href="https://wa.me/2348131920605" class="btn btn-whatsapp" target="_blank">
+                    <span>📱</span> WhatsApp (+234 813 192 0605)
+                </a>
+                <a href="tel:+2349125087454" class="btn btn-phone">
+                    <span>☎️</span> Call Now
+                </a>
+                <a href="mailto:musadanyarima@gmail.com" class="btn btn-email">
+                    <span>📧</span> Email
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Statistics -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="icon">👍</div>
+                <div class="number">10K+</div>
+                <div class="label">Likes</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">👥</div>
+                <div class="number">200K+</div>
+                <div class="label">Followers</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">👀</div>
+                <div class="number">1M+</div>
+                <div class="label">Views</div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="section">
+            <h2>About</h2>
+            <p>Mallam Musa Dan Yarima brings decades of spiritual wisdom and practical guidance to his work. He is deeply committed to understanding the unique challenges faced by his clients and providing compassionate, personalized support. His mission is to serve with honesty, respect, and a genuine commitment to helping others overcome difficulties and live better lives.</p>
+        </div>
+
+        <!-- Services Section -->
+        <div class="section">
+            <h2>Services Offered</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🙏 Spiritual Guidance</h3>
+                    <p>Counseling and advice on spiritual matters to guide your path</p>
+                </div>
+                <div class="service-card">
+                    <h3>📿 Prayer Support</h3>
+                    <p>Dedicated prayer sessions for healing and clarity</p>
+                </div>
+                <div class="service-card">
+                    <h3>👨‍👩‍👧‍👦 Family Mediation</h3>
+                    <p>Assistance in resolving conflicts and strengthening relationships</p>
+                </div>
+                <div class="service-card">
+                    <h3>💬 Personal Counseling</h3>
+                    <p>One-on-one guidance for life challenges and personal growth</p>
+                </div>
+                <div class="service-card">
+                    <h3>✨ Blessing & Intercession</h3>
+                    <p>Spiritual blessings and intercessory prayers for your well-being</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="section">
+            <h2>Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Honesty</h3>
+                    <p>Transparent and truthful guidance in all interactions</p>
+                </div>
+                <div class="value-card">
+                    <h3>Respect</h3>
+                    <p>Honoring the dignity and autonomy of every individual</p>
+                </div>
+                <div class="value-card">
+                    <h3>Compassion</h3>
+                    <p>Genuine care and empathy for those seeking help</p>
+                </div>
+                <div class="value-card">
+                    <h3>Commitment</h3>
+                    <p>Dedicated support throughout your spiritual journey</p>
+                </div>
+                <div class="value-card">
+                    <h3>Integrity</h3>
+                    <p>Upholding the highest ethical standards</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="section">
+            <h2>Testimonials - Client Success Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Amina Hassan</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"Mallam Musa's spiritual guidance transformed my life. His prayers and counsel gave me hope when I felt lost. Highly recommended!"</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Ibrahim Yusuf</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"I came to Mallam Musa with family conflicts that seemed unsolvable. His mediation skills brought peace to my household. Thank you!"</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Fatima Mohammed</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"The blessing and intercession I received changed everything. My business started thriving after following his spiritual guidance."</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Aisha Abdullahi</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"Mallam Musa's compassion and wisdom helped me through the darkest time of my life. I'm forever grateful."</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Mohammed Ahmed</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"His personal counseling sessions provided clarity I desperately needed. Best decision I ever made."</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Zainab Usman</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"The prayer support was exactly what my family needed. My son's condition improved remarkably. God bless you!"</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Hassan Ibrahim</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"Spiritual guidance that actually works. Mallam Musa delivers results with integrity and honesty."</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Noor Saleh</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"After months of confusion, Mallam Musa's counsel brought understanding and peace to my relationships."</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Lawal Adeyemi</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"His family mediation resolved years of misunderstanding between my siblings. Incredibly effective!"</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Khadijah Rashid</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"I was skeptical at first, but Mallam Musa's approach is genuine and deeply compassionate."</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Abdullahi Nuhu</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"The blessings he pronounced over my family have brought unprecedented harmony and prosperity."</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Maryam Hassan</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"Seeking spiritual guidance was the turning point in my healing journey. Thank you, Mallam Musa!"</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Suleiman Yakubu</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"His prayers were answered beyond my expectations. A true man of God!"</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Hafsat Kadir</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"Personal counseling that addresses the soul, not just the mind. Remarkable service!"</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Yusuf Mohammed</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"From despair to hope - that's what Mallam Musa accomplished in my life."</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Salma Badiru</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"The spiritual guidance I received continues to guide my decisions. It's life-changing!"</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Adamu Nasir</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"Family mediation that preserved our unity. Mallam Musa is a true blessing."</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Comfort Okafor</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"His intercessory prayers have become part of my daily spiritual practice. Thank you!"</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Khalid Hassan</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"Honest, respectful, and genuinely committed. Mallam Musa is the real deal!"</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-name">Zara Malik</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-text">"After losing hope, Mallam Musa's guidance restored my faith and brought me back to my purpose."</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mission Statement -->
+        <div class="mission-statement">
+            <h2 style="color: white; margin-top: 0;">Mission Statement</h2>
+            <p>To serve as a beacon of hope and guidance, helping individuals and families navigate life's spiritual and personal challenges with wisdom, compassion, and unwavering commitment to their well-being.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Mallam Musa Dan Yarima. All rights reserved.</p>
+        <p>Dedicated to serving with honesty, respect, and genuine commitment.</p>
+    </footer>
+</body>
+</html>
