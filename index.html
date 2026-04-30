@@ -3,153 +3,149 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mallam Musa Dan Yarima</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
 body{
-background:linear-gradient(120deg,#0f172a,#1e3a8a,#0ea5e9);
+background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)),
+url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
 background-attachment:fixed;
 color:#fff;
 }
 
-/* HERO */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+}
+
+nav h2{font-size:18px;}
+
+select{
+padding:6px;
+border-radius:6px;
+border:none;
+outline:none;
+}
+
 .hero{
 text-align:center;
-padding:90px 20px 60px;
+padding:80px 20px 40px;
 }
 
-.hero h1{
-font-size:42px;
-font-weight:700;
-letter-spacing:1px;
-}
+.hero h1{font-size:40px;}
+.hero p{margin-top:10px;opacity:0.9;}
 
-.hero p{
-font-size:18px;
-margin-top:10px;
-opacity:0.9;
-}
+.container{max-width:1100px;margin:auto;padding:20px;}
 
-/* MAIN CARD */
-.wrapper{
-max-width:1100px;
-margin:auto;
-padding:20px;
-}
-
-.glass{
+.card{
 background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
--webkit-backdrop-filter:blur(10px);
-border-radius:16px;
-padding:25px;
+backdrop-filter:blur(12px);
+padding:20px;
+border-radius:15px;
 margin:15px 0;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
-h2{
-color:#fff;
-margin-bottom:10px;
-font-size:22px;
+h2{margin-bottom:10px;}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
 }
 
-p,li{
-font-size:16px;
-line-height:1.6;
-opacity:0.95;
-}
-
-ul{
-padding-left:18px;
-}
-
-/* BUTTONS */
 .btn{
 display:inline-block;
 background:#22c55e;
 color:white;
-padding:12px 16px;
-border-radius:10px;
+padding:10px 15px;
+border-radius:8px;
 text-decoration:none;
 font-weight:600;
 margin-top:10px;
-transition:0.3s;
 }
 
-.btn:hover{
-transform:scale(1.05);
-background:#16a34a;
-}
-
-.btn2{
-background:#2563eb;
-}
-
-.btn2:hover{
-background:#1d4ed8;
-}
-
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-/* FLOAT BUTTON */
 .float{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#22c55e;
-color:white;
-padding:15px 18px;
+padding:15px;
 border-radius:50px;
 text-decoration:none;
+color:white;
 font-weight:700;
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
-footer{
-text-align:center;
-padding:20px;
-opacity:0.8;
-font-size:14px;
-}
+footer{text-align:center;padding:20px;opacity:0.7;}
 
-</style></head><body><div class="hero">
-<h1>MALLAM MUSA DAN YARIMA</h1>
-<p>Spiritual Guidance • Prayer Support • Life Counseling</p>
-</div><div class="wrapper"><div class="glass">
-<h2>About Me</h2>
-<p>
-Mallam Musa Dan Yarima is a trusted spiritual guide offering guidance, prayer support, and counseling to people facing life challenges. His mission is to bring peace, clarity, and direction through honest and compassionate support.
+</style></head><body><nav>
+<h2>Musa Dan Yarima</h2>
+<select onchange="changeLang(this.value)">
+<option value="en">English</option>
+<option value="ha">Hausa</option>
+<option value="fr">French</option>
+<option value="ar">Arabic</option>
+</select>
+</nav><div class="hero">
+<h1 id="title">Mallam Musa Dan Yarima</h1>
+<p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
+</div><div class="container"><div class="card">
+<h2>About</h2>
+<p id="about">
+A trusted spiritual guide offering prayers, counseling and guidance to people seeking peace and direction in life.
 </p>
-</div><div class="glass grid"><div>
+</div><div class="card">
 <h2>Services</h2>
 <ul>
 <li>Spiritual Guidance</li>
 <li>Prayer Support</li>
 <li>Family Mediation</li>
 <li>Personal Counseling</li>
+<li>Islamic Prayer Support</li>
 </ul>
-</div><div>
-<h2>Quick Contact (One Click)</h2>
+</div><div class="card">
+<h2>Daily Prayer</h2>
+<p>"Ya Allah grant us peace, guidance, protection and success in this life and the hereafter. Ameen."</p>
+</div><div class="card grid"><div>
+<h2>Contact</h2>
 <a class="btn" href="https://wa.me/2349125087454">WhatsApp 1</a><br>
-<a class="btn btn2" href="https://wa.me/2348131920605">WhatsApp 2</a><br>
-<a class="btn" href="mailto:musadanyarima@gmail.com">Send Email</a>
-</div></div><div class="glass">
+<a class="btn" href="https://wa.me/2348131920605">WhatsApp 2</a>
+</div><div>
 <h2>Mission</h2>
-<p>
-To provide honest spiritual guidance and support that helps individuals and families overcome challenges and live peaceful lives.
-</p>
-</div></div><a class="float" href="https://wa.me/2349125087454">💬 Chat Now</a>
+<p>To guide people with honesty, compassion and spiritual support.</p>
+</div></div><div class="card">
+<h2>Testimonials</h2>
+<ul>
+<li>Amina Hassan - "He brought peace into my life."</li>
+<li>Ibrahim Yusuf - "Solved my family issues."</li>
+<li>Fatima Ali - "Very helpful and kind."</li>
+<li>Usman Bello - "Guidance changed my life."</li>
+<li>Zainab Sani - "I found clarity and peace."</li>
+<li>Hassan Umar - "Strong spiritual support."</li>
+<li>Maryam Yusuf - "Very respectful and honest."</li>
+<li>Aliyu Musa - "Helped my family unity."</li>
+<li>Hafsat Abdullahi - "Truly life changing."</li>
+<li>Yusuf Ahmad - "Highly recommended."</li>
+</ul>
+</div></div><a class="float" href="https://wa.me/2349125087454">💬 Chat</a>
 
-<footer>
-© 2026 Mallam Musa Dan Yarima | All Rights Reserved
-</footer></body>
+<footer>© 2026 Mallam Musa Dan Yarima</footer><script>
+function changeLang(lang){
+const data={
+  en:{title:"Mallam Musa Dan Yarima",subtitle:"Spiritual Guidance • Prayer Support • Life Counseling",about:"A trusted spiritual guide offering prayers, counseling and guidance to people seeking peace and direction in life."},
+  ha:{title:"Mallam Musa Dan Yarima",subtitle:"Shawara na Ruhaniya • Addu'a • Taimakon Rayuwa",about:"Mai bada shawara da addu'a ga mutane masu neman kwanciyar hankali da mafita."},
+  fr:{title:"Mallam Musa Dan Yarima",subtitle:"Conseil spirituel • Prières • Orientation de vie",about:"Guide spirituel offrant soutien et conseils aux personnes."},
+  ar:{title:"الشيخ موسى دان ياريمَا",subtitle:"إرشاد روحي • دعاء • دعم الحياة",about:"مرشد روحي يقدم الدعاء والإرشاد للناس."}
+};
+
+document.getElementById('title').innerText=data[lang].title;
+document.getElementById('subtitle').innerText=data[lang].subtitle;
+document.getElementById('about').innerText=data[lang].about;
+}
+</script></body>
 </html>
