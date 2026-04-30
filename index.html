@@ -6,36 +6,27 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
 body{
-background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)),
-url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80');
+background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80');
 background-size:cover;
 background-attachment:fixed;
 color:#fff;
+transition:0.5s;
 }
 
 nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 20px;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 20px;background:rgba(0,0,0,0.4);backdrop-filter:blur(10px);
 }
 
 nav h2{font-size:18px;}
 
-select{
-padding:6px;
-border-radius:6px;
-border:none;
-outline:none;
+.controls{display:flex;gap:10px;align-items:center;}
+
+select,button{
+padding:6px 8px;border-radius:6px;border:none;cursor:pointer;
 }
 
-.hero{
-text-align:center;
-padding:80px 20px 40px;
-}
-
+.hero{text-align:center;padding:80px 20px 40px;}
 .hero h1{font-size:40px;}
 .hero p{margin-top:10px;opacity:0.9;}
 
@@ -44,64 +35,51 @@ padding:80px 20px 40px;
 .card{
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(12px);
-padding:20px;
-border-radius:15px;
-margin:15px 0;
+padding:20px;border-radius:15px;margin:15px 0;
 box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
 h2{margin-bottom:10px;}
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
 
 .btn{
-display:inline-block;
-background:#22c55e;
-color:white;
-padding:10px 15px;
-border-radius:8px;
-text-decoration:none;
-font-weight:600;
-margin-top:10px;
+display:inline-block;background:#22c55e;color:white;
+padding:10px 15px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:10px;
 }
 
+.btn.blue{background:#2563eb;}
+
 .float{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#22c55e;
-padding:15px;
-border-radius:50px;
-text-decoration:none;
-color:white;
-font-weight:700;
+position:fixed;bottom:20px;right:20px;background:#22c55e;
+padding:15px;border-radius:50px;text-decoration:none;color:white;font-weight:700;
 }
 
 footer{text-align:center;padding:20px;opacity:0.7;}
 
 </style></head><body><nav>
 <h2>Musa Dan Yarima</h2>
+<div class="controls">
 <select onchange="changeLang(this.value)">
-<option value="en">English</option>
-<option value="ha">Hausa</option>
-<option value="fr">French</option>
-<option value="ar">Arabic</option>
+<option value="en">EN</option>
+<option value="ha">HA</option>
+<option value="fr">FR</option>
+<option value="ar">AR</option>
+</select><select onchange="changeBg(this.value)">
+<option value="1">Background 1</option>
+<option value="2">Background 2</option>
+<option value="3">Background 3</option>
 </select>
+</div>
 </nav><div class="hero">
 <h1 id="title">Mallam Musa Dan Yarima</h1>
 <p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
 </div><div class="container"><div class="card">
-<h2>About</h2>
-<p id="about">
-A trusted spiritual guide offering prayers, counseling and guidance to people seeking peace and direction in life.
-</p>
+<h2 id="aboutTitle">About</h2>
+<p id="about">A trusted spiritual guide offering prayers, counseling and guidance to people seeking peace and direction in life.</p>
 </div><div class="card">
-<h2>Services</h2>
-<ul>
+<h2 id="serviceTitle">Services</h2>
+<ul id="services">
 <li>Spiritual Guidance</li>
 <li>Prayer Support</li>
 <li>Family Mediation</li>
@@ -109,43 +87,63 @@ A trusted spiritual guide offering prayers, counseling and guidance to people se
 <li>Islamic Prayer Support</li>
 </ul>
 </div><div class="card">
-<h2>Daily Prayer</h2>
-<p>"Ya Allah grant us peace, guidance, protection and success in this life and the hereafter. Ameen."</p>
-</div><div class="card grid"><div>
-<h2>Contact</h2>
-<a class="btn" href="https://wa.me/2349125087454">WhatsApp 1</a><br>
-<a class="btn" href="https://wa.me/2348131920605">WhatsApp 2</a>
+<h2 id="prayerTitle">Daily Prayer</h2>
+<p id="prayer">Ya Allah grant us peace, guidance and success. Ameen.</p>
+</div><div class="card grid">
+<div>
+<h2 id="contactTitle">Contact</h2>
+<a class="btn" href="https://wa.me/2349125087454">Chat on WhatsApp</a><br>
+<a class="btn blue" href="tel:+2347067379998">Call Now</a><br>
+<a class="btn" href="mailto:musadanyarima@gmail.com">Send Email</a>
 </div><div>
-<h2>Mission</h2>
-<p>To guide people with honesty, compassion and spiritual support.</p>
-</div></div><div class="card">
-<h2>Testimonials</h2>
-<ul>
-<li>Amina Hassan - "He brought peace into my life."</li>
-<li>Ibrahim Yusuf - "Solved my family issues."</li>
-<li>Fatima Ali - "Very helpful and kind."</li>
-<li>Usman Bello - "Guidance changed my life."</li>
-<li>Zainab Sani - "I found clarity and peace."</li>
-<li>Hassan Umar - "Strong spiritual support."</li>
-<li>Maryam Yusuf - "Very respectful and honest."</li>
-<li>Aliyu Musa - "Helped my family unity."</li>
-<li>Hafsat Abdullahi - "Truly life changing."</li>
-<li>Yusuf Ahmad - "Highly recommended."</li>
+<h2 id="missionTitle">Mission</h2>
+<p id="mission">To guide people with honesty, compassion and spiritual support.</p>
+</div>
+</div><div class="card">
+<h2 id="testTitle">Testimonials</h2>
+<ul id="testimonials">
+<li>Amina Hassan - He brought peace into my life.</li>
+<li>Ibrahim Yusuf - Solved my family issues.</li>
+<li>Fatima Ali - Very helpful and kind.</li>
+<li>Usman Bello - Guidance changed my life.</li>
+<li>Zainab Sani - I found clarity and peace.</li>
+<li>Hassan Umar - Strong spiritual support.</li>
+<li>Maryam Yusuf - Very respectful and honest.</li>
+<li>Aliyu Musa - Helped my family unity.</li>
+<li>Hafsat Abdullahi - Truly life changing.</li>
+<li>Yusuf Ahmad - Highly recommended.</li>
 </ul>
 </div></div><a class="float" href="https://wa.me/2349125087454">💬 Chat</a>
 
 <footer>© 2026 Mallam Musa Dan Yarima</footer><script>
+function changeBg(val){
+let imgs={
+1:"https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80",
+2:"https://images.unsplash.com/photo-1508020963102-c6c723be5764?auto=format&fit=crop&w=1400&q=80",
+3:"https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?auto=format&fit=crop&w=1400&q=80"
+};
+document.body.style.background="linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)), url('"+imgs[val]+"')";
+}
+
 function changeLang(lang){
 const data={
-  en:{title:"Mallam Musa Dan Yarima",subtitle:"Spiritual Guidance • Prayer Support • Life Counseling",about:"A trusted spiritual guide offering prayers, counseling and guidance to people seeking peace and direction in life."},
-  ha:{title:"Mallam Musa Dan Yarima",subtitle:"Shawara na Ruhaniya • Addu'a • Taimakon Rayuwa",about:"Mai bada shawara da addu'a ga mutane masu neman kwanciyar hankali da mafita."},
-  fr:{title:"Mallam Musa Dan Yarima",subtitle:"Conseil spirituel • Prières • Orientation de vie",about:"Guide spirituel offrant soutien et conseils aux personnes."},
-  ar:{title:"الشيخ موسى دان ياريمَا",subtitle:"إرشاد روحي • دعاء • دعم الحياة",about:"مرشد روحي يقدم الدعاء والإرشاد للناس."}
+ en:{title:"Mallam Musa Dan Yarima",subtitle:"Spiritual Guidance • Prayer Support • Life Counseling",aboutTitle:"About",about:"A trusted spiritual guide offering prayers, counseling and guidance to people seeking peace and direction in life.",serviceTitle:"Services",prayerTitle:"Daily Prayer",contactTitle:"Contact",missionTitle:"Mission",mission:"To guide people with honesty, compassion and spiritual support.",testTitle:"Testimonials"},
+ ha:{title:"Mallam Musa Dan Yarima",subtitle:"Shawara • Addu'a • Taimakon Rayuwa",aboutTitle:"Game da Ni",about:"Mai bada shawara da addu'a ga masu neman kwanciyar hankali.",serviceTitle:"Ayyuka",prayerTitle:"Addu'a",contactTitle:"Tuntuɓa",missionTitle:"Manufa",mission:"Taimaka wa mutane cikin gaskiya.",testTitle:"Shaidu"},
+ fr:{title:"Mallam Musa Dan Yarima",subtitle:"Conseil • Prières • Orientation",aboutTitle:"À propos",about:"Guide spirituel offrant soutien et conseils.",serviceTitle:"Services",prayerTitle:"Prière",contactTitle:"Contact",missionTitle:"Mission",mission:"Aider avec honnêteté.",testTitle:"Témoignages"},
+ ar:{title:"الشيخ موسى",subtitle:"إرشاد • دعاء • دعم",aboutTitle:"حول",about:"مرشد روحي يقدم الدعم.",serviceTitle:"الخدمات",prayerTitle:"دعاء",contactTitle:"اتصال",missionTitle:"مهمتنا",mission:"مساعدة الناس بصدق.",testTitle:"آراء"}
 };
 
-document.getElementById('title').innerText=data[lang].title;
-document.getElementById('subtitle').innerText=data[lang].subtitle;
-document.getElementById('about').innerText=data[lang].about;
+let t=data[lang];
+document.getElementById('title').innerText=t.title;
+document.getElementById('subtitle').innerText=t.subtitle;
+document.getElementById('aboutTitle').innerText=t.aboutTitle;
+document.getElementById('about').innerText=t.about;
+document.getElementById('serviceTitle').innerText=t.serviceTitle;
+document.getElementById('prayerTitle').innerText=t.prayerTitle;
+document.getElementById('contactTitle').innerText=t.contactTitle;
+document.getElementById('missionTitle').innerText=t.missionTitle;
+document.getElementById('mission').innerText=t.mission;
+document.getElementById('testTitle').innerText=t.testTitle;
 }
 </script></body>
 </html>
