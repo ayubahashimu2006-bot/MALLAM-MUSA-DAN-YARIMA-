@@ -224,9 +224,6 @@ color:#22c55e;
 <div class="cta-note" id="note">⬇ CLICK TO CONTACT ⬇</div>
 <p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
 </div><div class="container"><div class="card">
-<h2>📿 Quran Audio (Auto Recitation)</h2>
-<p>Tap anywhere once to enable continuous recitation</p>
-</div><div class="card">
 <h2>Premium Services</h2>
 <ul>
 <li>Malakan Dukiya daga Raffa</li>
@@ -261,7 +258,7 @@ document.getElementById('bg').style.backgroundImage=`url(${backgrounds[i]})`;
 i=(i+1)%backgrounds.length;
 },5000);
 
-// LANGUAGE + VOICE
+// LANGUAGE SYSTEM
 function changeLang(lang){
 const data={
  en:{title:"Mallam Musa Dan Yarima",subtitle:"Spiritual Guidance • Prayer Support • Life Counseling",note:"Click to Contact",voice:"Assalamu Alaikum. Welcome."},
@@ -274,7 +271,6 @@ document.getElementById('title').innerText=t.title;
 document.getElementById('subtitle').innerText=t.subtitle;
 document.getElementById('note').innerText=t.note;
 speechSynthesis.cancel();
-speechSynthesis.speak(new SpeechSynthesisUtterance(t.voice));
 }
 
 // REAL QURAN AUTO (FIXED)
