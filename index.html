@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mallam Musa Dan Yarima</title>
-
-<meta name="description" content="Islamic spiritual guidance, prayer support and counseling services in Nigeria. Contact instantly via WhatsApp.">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
+<title>Mallam Musa Dan Yarima</title><meta name="description" content="Islamic spiritual guidance, prayer support and counseling services in Nigeria. Contact instantly via WhatsApp."><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
 body{
 color:#fff;
 min-height:100vh;
 overflow-x:hidden;
+background:#000;
 }
 
 .bg{
@@ -31,7 +25,7 @@ transition:1.5s ease-in-out;
 position:fixed;
 inset:0;
 z-index:-1;
-background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85));
+background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.88));
 }
 
 nav{
@@ -39,7 +33,7 @@ display:flex;
 flex-direction:column;
 align-items:center;
 padding:15px;
-background:rgba(0,0,0,0.35);
+background:rgba(0,0,0,0.4);
 backdrop-filter:blur(10px);
 position:sticky;
 top:0;
@@ -48,12 +42,14 @@ z-index:20;
 
 nav h2{
 font-size:18px;
-font-weight:700;
+font-weight:800;
+letter-spacing:1px;
 }
 
+/* ULTRA CTA BUTTONS */
 .cta-wrap{
 display:flex;
-gap:10px;
+gap:12px;
 margin-top:10px;
 flex-wrap:wrap;
 justify-content:center;
@@ -63,40 +59,60 @@ justify-content:center;
 display:flex;
 align-items:center;
 gap:8px;
-padding:10px 14px;
+padding:12px 16px;
 border-radius:50px;
 text-decoration:none;
-font-weight:700;
+font-weight:800;
 color:#fff;
+position:relative;
+overflow:hidden;
 animation:pulse 2s infinite;
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
+box-shadow:0 0 25px rgba(34,197,94,0.4);
 }
 
-.cta.green{background:#22c55e;}
-.cta.blue{background:#2563eb;}
-
-.arrow{
-animation:blink 1s infinite;
+.cta.green{
+background:linear-gradient(270deg,#16a34a,#22c55e,#4ade80);
+background-size:400% 400%;
+animation:gradient 5s ease infinite,pulse 2s infinite;
 }
 
-@keyframes blink{
-0%,100%{opacity:1;}
-50%{opacity:0.2;}
+.cta.blue{
+background:linear-gradient(270deg,#1d4ed8,#2563eb,#60a5fa);
+background-size:400% 400%;
+animation:gradient 5s ease infinite,pulse 2s infinite;
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 @keyframes pulse{
 0%{transform:scale(1);}
-50%{transform:scale(1.05);}
+50%{transform:scale(1.07);}
 100%{transform:scale(1);}
+}
+
+.arrow{
+font-weight:900;
+animation:updown 0.7s infinite;
+}
+
+@keyframes updown{
+0%{transform:translateY(6px);}
+50%{transform:translateY(-6px);}
+100%{transform:translateY(6px);}
 }
 
 .hero{
 text-align:center;
-padding:60px 20px 20px;
+padding:60px 20px 10px;
 }
 
 .hero h1{
-font-size:38px;
+font-size:40px;
+font-weight:900;
 }
 
 .hero p{
@@ -104,11 +120,16 @@ opacity:0.9;
 margin-top:10px;
 }
 
-.cta-hero-note{
+.cta-note{
 margin-top:10px;
 color:#22c55e;
-font-weight:800;
+font-weight:900;
 animation:blink 1s infinite;
+}
+
+@keyframes blink{
+0%,100%{opacity:1;}
+50%{opacity:0.3;}
 }
 
 .container{
@@ -131,7 +152,7 @@ display:inline-block;
 padding:10px 15px;
 border-radius:10px;
 text-decoration:none;
-font-weight:600;
+font-weight:700;
 color:#fff;
 margin-top:10px;
 }
@@ -152,104 +173,72 @@ padding:12px 14px;
 border-radius:50px;
 text-decoration:none;
 color:#fff;
-font-weight:700;
+font-weight:800;
 }
 
-/* CHATBOT */
-.chatbot{
+/* TESTIMONIAL TICKER */
+.ticker{
 position:fixed;
-bottom:90px;
-right:20px;
-width:250px;
-background:#111;
-border-radius:12px;
-padding:10px;
-display:none;
+bottom:0;
+left:0;
+width:100%;
+background:rgba(0,0,0,0.8);
+overflow:hidden;
+white-space:nowrap;
 z-index:50;
+padding:10px 0;
 }
 
-.chatbot input{
-width:100%;
-padding:8px;
-border-radius:8px;
-border:none;
-margin-top:5px;
+.ticker span{
+display:inline-block;
+padding-left:100%;
+animation:scroll 25s linear infinite;
+font-weight:700;
+color:#22c55e;
 }
 
-.chatbot button{
-margin-top:5px;
-padding:8px;
-width:100%;
-border:none;
-border-radius:8px;
-background:#22c55e;
-color:#fff;
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100%);}
 }
 
-footer{text-align:center;padding:20px;opacity:0.7;}
-</style>
-</head>
-
-<body>
-
-<div class="bg" id="bg"></div>
-<div class="overlay"></div>
-
-<nav>
-<h2>Musa Dan Yarima</h2>
-
-<div class="cta-wrap">
-<a class="cta green" href="https://wa.me/2349125087454"><span class="arrow">⬇</span> WhatsApp 912</a>
-<a class="cta blue" href="https://wa.me/2348131920605"><span class="arrow">⬇</span> WhatsApp 813</a>
+</style></head><body><div class="bg" id="bg"></div>
+<div class="overlay"></div><nav>
+<h2>Musa Dan Yarima</h2><div class="cta-wrap">
+<a class="cta green" href="https://wa.me/2349125087454">
+<span class="arrow">⬆⬇</span> CHAT 912
+</a>
+<a class="cta blue" href="https://wa.me/2348131920605">
+<span class="arrow">⬆⬇</span> CHAT 813
+</a>
 </div>
-
-</nav>
-
-<div class="hero">
-<h1 id="title">Mallam Musa Dan Yarima</h1>
-
-<div class="cta-hero-note">⬇ CLICK BELOW TO CHAT ⬇</div>
-
-<p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
-</div>
-
-<div class="container">
-
-<div class="card">
+</nav><div class="hero">
+<h1>Mallam Musa Dan Yarima</h1><div class="cta-note">⬇ CLICK BUTTONS ABOVE OR BELOW TO CONTACT ⬇</div><p>Spiritual Guidance • Prayer Support • Life Counseling</p>
+</div><div class="container"><div class="card">
 <h2>About</h2>
-<p>Trusted Islamic spiritual guidance and counseling.</p>
-</div>
-
-<div class="card">
+<p>Trusted Islamic spiritual guidance and counseling services.</p>
+</div><div class="card">
 <h2>Services</h2>
 <ul>
 <li>Prayer Support</li>
 <li>Spiritual Guidance</li>
-<li>Family Help</li>
+<li>Family Problem Solution</li>
+<li>Baraka & Guidance</li>
 </ul>
-</div>
-
-<div class="card">
+</div><div class="card">
+<h2>Special Note</h2>
+<p>“Mallakan soyyaya ko Aure mallakan dukiya daga raffanai”</p>
+</div><div class="card">
 <h2>Contact</h2>
-<a class="btn green" href="https://wa.me/2349125087454">Chat WhatsApp 912</a><br>
-<a class="btn blue" href="https://wa.me/2348131920605">Chat WhatsApp 813</a>
-</div>
-
-</div>
-
-<div class="float">
-<a href="javascript:toggleChat()">💬 Chat</a>
-</div>
-
-<div class="chatbot" id="chatbot">
-<p>Ask something:</p>
-<input id="msg" placeholder="Type here...">
-<button onclick="reply()">Send</button>
-</div>
-
-<footer>© 2026 Mallam Musa Dan Yarima</footer>
-
-<script>
+<a class="btn green" href="https://wa.me/2349125087454">WhatsApp 912</a><br>
+<a class="btn blue" href="https://wa.me/2348131920605">WhatsApp 813</a>
+</div></div><div class="float">
+<a href="https://wa.me/2349125087454">💬 CHAT</a>
+</div><div class="ticker">
+<span>
+Amina Hassan - Peace restored • Ibrahim Yusuf - Family solved • Fatima Ali - Very helpful • Usman Bello - Life changed • Zainab Sani - Guidance received • Mallam Musa Dan Yarima - Trusted spiritual support •
+</span>
+</div><script>
 const backgrounds=[
 "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80",
 "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80",
@@ -261,29 +250,10 @@ const backgrounds=[
 
 let i=0;
 function rotateBg(){
-const bg=document.getElementById('bg');
-bg.style.backgroundImage=`url(${backgrounds[i]})`;
+document.getElementById('bg').style.backgroundImage=`url(${backgrounds[i]})`;
 i=(i+1)%backgrounds.length;
 }
 setInterval(rotateBg,5000);
 rotateBg();
-
-// VOICE GREETING
-window.onload=function(){
-let msg=new SpeechSynthesisUtterance("Assalamu Alaikum. Welcome to Mallam Musa Dan Yarima website. Click WhatsApp to chat.");
-speechSynthesis.speak(msg);
-};
-
-function toggleChat(){
-let c=document.getElementById('chatbot');
-c.style.display=c.style.display==='block'?'none':'block';
-}
-
-function reply(){
-let m=document.getElementById('msg').value.toLowerCase();
-alert("Please contact WhatsApp for full support: 912 or 813");
-}
-</script>
-
-</body>
+</script></body>
 </html>
