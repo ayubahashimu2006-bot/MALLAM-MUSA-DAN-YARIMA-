@@ -2,16 +2,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mallam Musa Dan Yarima</title>
-<meta name="description" content="Islamic spiritual guidance, prayer support and counseling services in Nigeria." />
+<title>Mallam Musa Dan Yarima - PRO VERSION</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#000;color:#fff;overflow-x:hidden;}
 
 .bg{position:fixed;inset:0;z-index:-2;background-size:cover;background-position:center;transition:1.5s;}
-.overlay{position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9));}
+.overlay{position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.92));}
 
-nav{display:flex;flex-direction:column;align-items:center;padding:15px;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);position:sticky;top:0;z-index:20;}
+nav{display:flex;flex-direction:column;align-items:center;padding:15px;background:rgba(0,0,0,.55);backdrop-filter:blur(10px);position:sticky;top:0;z-index:20;}
 nav h2{font-size:18px;font-weight:800;}
 
 .cta-wrap{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px;}
@@ -27,9 +26,17 @@ nav h2{font-size:18px;font-weight:800;}
 .container{max-width:1000px;margin:auto;padding:20px;}
 .card{background:rgba(255,255,255,.08);padding:20px;border-radius:15px;margin:15px 0;backdrop-filter:blur(10px);}
 
-.popup{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:999;}
+/* POPUP */
+.popup{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.9);z-index:999;}
 .popup-box{background:#111;padding:25px;border-radius:15px;text-align:center;max-width:320px;}
 .popup-btn{display:inline-block;margin-top:15px;padding:12px 18px;background:#22c55e;color:#fff;border-radius:50px;font-weight:800;text-decoration:none;}
+
+/* START BUTTON */
+.start-btn{
+position:fixed;bottom:80px;right:20px;z-index:9999;
+background:#2563eb;color:#fff;padding:12px 14px;border-radius:50px;font-weight:800;cursor:pointer;
+box-shadow:0 0 20px rgba(37,99,235,.6);
+}
 
 .admin-btn{position:fixed;top:10px;right:10px;background:#2563eb;padding:10px 14px;border-radius:10px;font-weight:800;cursor:pointer;z-index:1000;}
 
@@ -43,7 +50,7 @@ nav h2{font-size:18px;font-weight:800;}
 @keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-100%);}}
 
 </style></head><body><div class="bg" id="bg"></div>
-<div class="overlay"></div><!-- ADMIN BUTTON --><div class="admin-btn" onclick="openAdmin()">Admin</div><!-- ADMIN PANEL --><div class="admin-panel" id="adminPanel">
+<div class="overlay"></div><!-- START AUDIO UNLOCK --><div class="start-btn" onclick="startSystem()">▶ START RECITATION</div><!-- ADMIN --><div class="admin-btn" onclick="openAdmin()">Admin</div><div class="admin-panel" id="adminPanel">
   <div class="admin-box">
     <h3>Admin Login</h3>
     <input type="password" id="adminPass" placeholder="Enter Password" />
@@ -51,8 +58,8 @@ nav h2{font-size:18px;font-weight:800;}
   </div>
 </div><!-- POPUP --><div class="popup" id="popup">
   <div class="popup-box">
-    <h3>📿 Spiritual Guidance</h3>
-    <p>Click below to contact on WhatsApp</p>
+    <h3>📿 Islamic Guidance</h3>
+    <p>Tap to unlock audio & WhatsApp</p>
     <a class="popup-btn" href="https://wa.me/2349125087454">Open WhatsApp</a>
   </div>
 </div><nav>
@@ -66,22 +73,12 @@ nav h2{font-size:18px;font-weight:800;}
 <p>Spiritual Guidance • Prayer Support • Counseling</p>
 </div><div class="container">
 <div class="card">
-<h2>Quran Recitation Active</h2>
-<p>Auto Surah playback enabled</p>
+<h2>PRO Quran Recitation Engine</h2>
+<p>Surah Al-Jinn → Continuous Arabic Audio Streaming</p>
 </div>
-</div><div class="ticker"><span>Trusted Islamic Guidance • Spiritual Help • Protection • Baraka • </span></div><audio id="quranAudio"></audio>
+</div><div class="ticker"><span>Islamic Guidance • Spiritual Healing • Baraka • Protection • </span></div><audio id="quranAudio" preload="auto"></audio>
 
 <script>
-// ADMIN SYSTEM
-const ADMIN_PASS="08038385242";
-function openAdmin(){document.getElementById('adminPanel').style.display='flex';}
-function checkAdmin(){
-let p=document.getElementById('adminPass').value;
-if(p===ADMIN_PASS){alert('Welcome AYUBA HASHIMU');document.getElementById('adminPanel').style.display='none';}
-else{alert('Wrong Password');}
-}
-
-document.getElementById('popup').onclick=()=>document.getElementById('popup').style.display='none';
 
 // BACKGROUND
 const bg=["https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80"];
@@ -91,17 +88,49 @@ document.getElementById('bg').style.backgroundImage=`url(${bg[i]})`;
 i=(i+1)%bg.length;
 },5000);
 
-// QURAN AUDIO
+// ADMIN
+const ADMIN_PASS="08038385242";
+function openAdmin(){document.getElementById('adminPanel').style.display='flex';}
+function checkAdmin(){
+if(document.getElementById('adminPass').value===ADMIN_PASS){alert('Welcome AYUBA HASHIMU');document.getElementById('adminPanel').style.display='none';}
+else alert('Wrong Password');
+}
+
+// AUDIO FIX (PRO ENGINE)
 const audio=document.getElementById("quranAudio");
-audio.volume=0.65;
+audio.volume=0.8;
+
 const playlist=[
 "https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/072.mp3",
-"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/073.mp3"
+"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/073.mp3",
+"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/074.mp3",
+"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/075.mp3"
 ];
+
 let q=0;
-function play(){audio.src=playlist[q];audio.play().catch(()=>{});q=(q+1)%playlist.length;}
-audio.onended=()=>setTimeout(play,1200);
-function start(){play();document.removeEventListener('click',start);}
-document.addEventListener('click',start);
+let started=false;
+
+function playNext(){
+audio.src=playlist[q];
+audio.load();
+audio.play().catch(e=>console.log("Audio blocked until user interaction"));
+q=(q+1)%playlist.length;
+}
+
+audio.onended=()=>setTimeout(playNext,1200);
+
+// CRITICAL FIX: USER GESTURE UNLOCK
+function startSystem(){
+if(started) return;
+started=true;
+playNext();
+document.getElementById('popup').style.display='none';
+}
+
+// fallback click unlock
+document.addEventListener('click',()=>{
+if(!started){startSystem();}
+},{once:true});
+
 </script></body>
 </html>
