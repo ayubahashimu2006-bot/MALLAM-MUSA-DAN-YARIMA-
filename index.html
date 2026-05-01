@@ -6,31 +6,15 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
 body{
-background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80');
-background-size:cover;
-background-attachment:fixed;
+background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.9));
 color:#fff;
 transition:1s;
 }
 
-/* NAV */
-nav{
-display:flex;justify-content:space-between;align-items:center;
-padding:15px 20px;background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
-}
-
-nav h2{font-size:18px;font-weight:600;}
-
 /* HERO */
-.hero{
-text-align:center;
-padding:80px 20px 40px;
-animation:fadeIn 1.5s ease;
-}
-
-.hero h1{font-size:42px;font-weight:700;}
-.hero p{opacity:0.85;margin-top:10px;}
+.hero{text-align:center;padding:80px 20px 40px;}
+.hero h1{font-size:42px;}
+.hero p{opacity:0.85;}
 
 /* CONTAINER */
 .container{max-width:1100px;margin:auto;padding:20px;}
@@ -39,96 +23,54 @@ animation:fadeIn 1.5s ease;
 .card{
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(14px);
-padding:20px;
-border-radius:16px;
-margin:15px 0;
+padding:20px;border-radius:16px;margin:15px 0;
 box-shadow:0 15px 40px rgba(0,0,0,0.5);
 transition:0.3s;
 }
-
-.card:hover{
-transform:translateY(-6px) scale(1.01);
-}
-
-/* BUTTON */
-.btn{
-display:inline-block;
-background:#22c55e;
-padding:10px 16px;
-border-radius:8px;
-color:#fff;
-text-decoration:none;
-margin-top:10px;
-font-weight:600;
-}
-
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
+.card:hover{transform:translateY(-6px);}
 
 /* GALLERY */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:15px;
-margin-top:10px;
 }
 
-.gallery a{
-position:relative;
-overflow:hidden;
-border-radius:12px;
-}
+.gallery a{position:relative;overflow:hidden;border-radius:12px;}
 
 .gallery img{
 width:100%;
-height:230px;
+height:250px;
 object-fit:cover;
 transition:0.5s;
-border-radius:12px;
 }
 
 .gallery a::after{
 content:"Chat on WhatsApp";
-position:absolute;
-bottom:0;
-left:0;
-right:0;
+position:absolute;bottom:0;left:0;right:0;
 background:#22c55e;
-text-align:center;
-padding:10px;
-opacity:0;
-transition:0.3s;
-font-weight:600;
+text-align:center;padding:10px;
+opacity:0;transition:0.3s;
 }
 
 .gallery a:hover img{
 transform:scale(1.1);
 filter:brightness(0.6);
 }
+.gallery a:hover::after{opacity:1;}
 
-.gallery a:hover::after{
-opacity:1;
-}
-
-/* FLOAT BUTTON */
+/* FLOAT */
 .float{
 position:fixed;
 bottom:20px;
 right:20px;
 }
-
 .float a{
 background:#22c55e;
-padding:14px 16px;
+padding:14px;
 border-radius:50px;
-text-decoration:none;
 color:#fff;
-font-weight:bold;
-box-shadow:0 10px 25px rgba(0,0,0,.4);
+text-decoration:none;
 }
 
 /* POPUP */
@@ -138,83 +80,31 @@ bottom:90px;
 right:20px;
 background:#111;
 padding:15px;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
+border-radius:10px;
 display:none;
-animation:fadeIn 0.5s;
-}
-
-.popup a{
-color:#22c55e;
-font-weight:600;
-text-decoration:none;
 }
 
 /* FOOTER */
-footer{
-text-align:center;
-padding:20px;
-opacity:0.7;
-}
-
-/* ANIMATION */
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
-</style></head><body><nav>
-<h2>Musa Dan Yarima</h2>
-</nav><div class="hero">
+footer{text-align:center;padding:20px;opacity:0.7;}
+</style></head><body><div class="hero">
 <h1>Mallam Musa Dan Yarima</h1>
 <p>Spiritual Guidance • Prayer Support • Life Counseling</p>
 </div><div class="container"><div class="card">
 <h2>About</h2>
-<p>A trusted spiritual guide offering prayers, counseling and direction in life.</p>
+<p>Trusted spiritual guidance and support.</p>
 </div><div class="card">
-<h2>Services</h2>
-<ul>
-<li>Spiritual Guidance</li>
-<li>Prayer Support</li>
-<li>Family Help</li>
-<li>Personal Counseling</li>
-</ul>
-</div><div class="card">
-<h2>Spiritual Works</h2><div class="gallery"><a href="https://wa.me/2349125087454?text=Hello%20I%20need%20your%20help" target="_blank">
-<img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=800&q=80">
-</a><a href="https://wa.me/2349125087454?text=Hello%20I%20need%20your%20help" target="_blank">
-<img src="https://images.unsplash.com/photo-1589758438368-0ad531db3366?auto=format&fit=crop&w=800&q=80">
-</a><a href="https://wa.me/2349125087454?text=Hello%20I%20need%20your%20help" target="_blank">
-<img src="https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?auto=format&fit=crop&w=800&q=80">
+<h2>Spiritual Works</h2><div class="gallery"><a href="https://wa.me/2349125087454?text=Hello%20I%20saw%20your%20work">
+<img src="img1.jpg">
+</a><a href="https://wa.me/2349125087454?text=Hello%20I%20saw%20your%20work">
+<img src="img2.jpg">
+</a><a href="https://wa.me/2349125087454?text=Hello%20I%20saw%20your%20work">
+<img src="img3.jpg">
 </a></div>
-</div><div class="card grid">
-<div>
-<h2>Contact</h2>
-<a class="btn" href="https://wa.me/2349125087454">WhatsApp</a>
-</div><div>
-<h2>Mission</h2>
-<p>Helping people with faith, honesty and guidance.</p>
-</div>
-</div></div><!-- FLOAT --><div class="float">
+</div></div><div class="float">
 <a href="https://wa.me/2349125087454">💬 Chat</a>
-</div><!-- POPUP --><div class="popup" id="popup">
-Need help? 👉 <a href="https://wa.me/2349125087454">Chat on WhatsApp</a>
+</div><div class="popup" id="popup">
+👉 <a href="https://wa.me/2349125087454">Chat on WhatsApp</a>
 </div><footer>© 2026 Mallam Musa Dan Yarima</footer><script>
-/* AUTO BACKGROUND */
-let images=[
-"https://images.unsplash.com/photo-1542810634-71277d95dcbb",
-"https://images.unsplash.com/photo-1508020963102-c6c723be5764",
-"https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea"
-];
-
-let i=0;
-
-setInterval(()=>{
-i=(i+1)%images.length;
-document.body.style.background=
-"linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.9)), url('"+images[i]+"?auto=format&fit=crop&w=1400&q=80')";
-},5000);
-
-/* WHATSAPP POPUP */
 setTimeout(()=>{
 document.getElementById("popup").style.display="block";
 },6000);
