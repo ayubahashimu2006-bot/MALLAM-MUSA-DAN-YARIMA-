@@ -2,135 +2,182 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mallam Musa Dan Yarima - PRO VERSION</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
+<title>Islamic Guidance Platform</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#000;color:#fff;overflow-x:hidden;}
+body{background:#0b0f14;color:#fff;overflow-x:hidden;}
 
-.bg{position:fixed;inset:0;z-index:-2;background-size:cover;background-position:center;transition:1.5s;}
-.overlay{position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.92));}
+/* BACKGROUND */
+.bg{
+position:fixed;inset:0;
+z-index:-2;
+background:url('https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-position:center;
+filter:brightness(0.4);
+}
 
-nav{display:flex;flex-direction:column;align-items:center;padding:15px;background:rgba(0,0,0,.55);backdrop-filter:blur(10px);position:sticky;top:0;z-index:20;}
-nav h2{font-size:18px;font-weight:800;}
+.overlay{
+position:fixed;inset:0;
+z-index:-1;
+background:linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.9));
+}
 
-.cta-wrap{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px;}
-.cta{padding:12px 16px;border-radius:50px;font-weight:800;text-decoration:none;color:#fff;animation:pulse 2s infinite;}
-.cta.green{background:linear-gradient(270deg,#16a34a,#22c55e,#4ade80);}
-.cta.blue{background:linear-gradient(270deg,#1d4ed8,#2563eb,#60a5fa);}
+/* NAV */
+nav{
+position:sticky;top:0;
+z-index:10;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.06);}100%{transform:scale(1);}}
+nav h1{font-size:18px;font-weight:700;}
 
-.hero{text-align:center;padding:50px 20px 10px;}
-.hero h1{font-size:38px;font-weight:900;}
+/* BUTTONS */
+.btn{
+display:inline-block;
+padding:12px 16px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+}
 
-.container{max-width:1000px;margin:auto;padding:20px;}
-.card{background:rgba(255,255,255,.08);padding:20px;border-radius:15px;margin:15px 0;backdrop-filter:blur(10px);}
+.whatsapp{background:#25D366;color:#fff;}
+.email{background:#3b82f6;color:#fff;}
+.btn:hover{transform:scale(1.05);}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:50px 20px 20px;
+}
+.hero h2{font-size:32px;font-weight:800;}
+.hero p{opacity:0.8;margin-top:10px;}
+
+/* CARDS */
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.06);
+padding:20px;
+border-radius:15px;
+margin-top:15px;
+backdrop-filter:blur(10px);
+}
 
 /* POPUP */
-.popup{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.9);z-index:999;}
-.popup-box{background:#111;padding:25px;border-radius:15px;text-align:center;max-width:320px;}
-.popup-btn{display:inline-block;margin-top:15px;padding:12px 18px;background:#22c55e;color:#fff;border-radius:50px;font-weight:800;text-decoration:none;}
+.popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.85);
+z-index:999;
+display:flex;
+align-items:center;
+justify-content:center;
+}
 
-/* START BUTTON */
+.popup-box{
+background:#111;
+padding:25px;
+border-radius:15px;
+text-align:center;
+width:300px;
+}
+
+.popup-box h3{margin-bottom:10px;}
+.popup-box a{
+display:inline-block;
+margin-top:15px;
+background:#25D366;
+padding:12px 18px;
+border-radius:50px;
+text-decoration:none;
+color:#fff;
+font-weight:700;
+}
+
+/* AUDIO BUTTON */
 .start-btn{
-position:fixed;bottom:80px;right:20px;z-index:9999;
-background:#2563eb;color:#fff;padding:12px 14px;border-radius:50px;font-weight:800;cursor:pointer;
-box-shadow:0 0 20px rgba(37,99,235,.6);
+position:fixed;
+bottom:20px;
+right:20px;
+z-index:999;
+background:#22c55e;
+padding:14px 18px;
+border-radius:50px;
+font-weight:800;
+cursor:pointer;
+box-shadow:0 0 20px rgba(34,197,94,0.5);
 }
 
-.admin-btn{position:fixed;top:10px;right:10px;background:#2563eb;padding:10px 14px;border-radius:10px;font-weight:800;cursor:pointer;z-index:1000;}
-
-.admin-panel{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:2000;}
-.admin-box{background:#111;padding:20px;border-radius:15px;width:300px;}
-.admin-box input{width:100%;padding:10px;margin-top:10px;border-radius:10px;border:none;}
-.admin-box button{margin-top:10px;width:100%;padding:10px;border:none;border-radius:10px;background:#22c55e;color:#fff;font-weight:800;}
-
-.ticker{position:fixed;bottom:0;left:0;width:100%;background:#000;padding:10px;white-space:nowrap;overflow:hidden;}
-.ticker span{display:inline-block;padding-left:100%;animation:scroll 20s linear infinite;color:#22c55e;font-weight:700;}
-@keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-100%);}}
-
-</style></head><body><div class="bg" id="bg"></div>
-<div class="overlay"></div><!-- START AUDIO UNLOCK --><div class="start-btn" onclick="startSystem()">▶ START RECITATION</div><!-- ADMIN --><div class="admin-btn" onclick="openAdmin()">Admin</div><div class="admin-panel" id="adminPanel">
-  <div class="admin-box">
-    <h3>Admin Login</h3>
-    <input type="password" id="adminPass" placeholder="Enter Password" />
-    <button onclick="checkAdmin()">Login</button>
-  </div>
-</div><!-- POPUP --><div class="popup" id="popup">
+</style></head><body><div class="bg"></div>
+<div class="overlay"></div><!-- POPUP --><div class="popup" id="popup">
   <div class="popup-box">
-    <h3>📿 Islamic Guidance</h3>
-    <p>Tap to unlock audio & WhatsApp</p>
-    <a class="popup-btn" href="https://wa.me/2349125087454">Open WhatsApp</a>
+    <h3>📿 Need Islamic Guidance?</h3>
+    <p>Chat with us on WhatsApp for more information</p>
+    <a href="https://wa.me/2349125087454">Chat Now</a>
   </div>
-</div><nav>
-<h2>Musa Dan Yarima</h2>
-<div class="cta-wrap">
-<a class="cta green" href="https://wa.me/2349125087454">WhatsApp 912</a>
-<a class="cta blue" href="https://wa.me/2348131920605">WhatsApp 813</a>
+</div><!-- NAV --><nav>
+<h1>Islamic Guidance</h1>
+<div>
+<a class="btn whatsapp" href="https://wa.me/2349125087454">WhatsApp</a>
+<a class="btn email" href="mailto:musadanyarima@gmail.com">Email</a>
 </div>
-</nav><div class="hero">
-<h1>Mallam Musa Dan Yarima</h1>
-<p>Spiritual Guidance • Prayer Support • Counseling</p>
-</div><div class="container">
-<div class="card">
-<h2>PRO Quran Recitation Engine</h2>
-<p>Surah Al-Jinn → Continuous Arabic Audio Streaming</p>
-</div>
-</div><div class="ticker"><span>Islamic Guidance • Spiritual Healing • Baraka • Protection • </span></div><audio id="quranAudio" preload="auto"></audio>
+</nav><!-- HERO --><div class="hero">
+<h2>Spiritual Guidance & Quran Recitation</h2>
+<p>Listen to continuous Arabic Quran recitation</p>
+</div><!-- SERVICES --><div class="container"><div class="card">
+<h3>Our Services</h3>
+<p>• Spiritual guidance
+• Prayer support
+• Life counseling
+• Protection & Baraka
+• Istikhara help</p>
+</div><div class="card">
+<h3>Quran Recitation</h3>
+<p>Auto Arabic recitation is ready</p>
+</div></div><!-- AUDIO --><audio id="quran" preload="auto"></audio>
 
-<script>
+<div class="start-btn" onclick="startAudio()">▶ Start Quran</div><script>
 
-// BACKGROUND
-const bg=["https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80"];
-let i=0;
-setInterval(()=>{
-document.getElementById('bg').style.backgroundImage=`url(${bg[i]})`;
-i=(i+1)%bg.length;
-},5000);
+// POPUP CLOSE
+document.getElementById('popup').onclick=function(){this.style.display='none'};
 
-// ADMIN
-const ADMIN_PASS="08038385242";
-function openAdmin(){document.getElementById('adminPanel').style.display='flex';}
-function checkAdmin(){
-if(document.getElementById('adminPass').value===ADMIN_PASS){alert('Welcome AYUBA HASHIMU');document.getElementById('adminPanel').style.display='none';}
-else alert('Wrong Password');
-}
-
-// AUDIO FIX (PRO ENGINE)
-const audio=document.getElementById("quranAudio");
+// AUDIO SYSTEM (SIMPLE & RELIABLE)
+const audio=document.getElementById('quran');
 audio.volume=0.8;
 
 const playlist=[
 "https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/072.mp3",
 "https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/073.mp3",
-"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/074.mp3",
-"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/075.mp3"
+"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/074.mp3"
 ];
 
-let q=0;
+let i=0;
 let started=false;
 
 function playNext(){
-audio.src=playlist[q];
-audio.load();
-audio.play().catch(e=>console.log("Audio blocked until user interaction"));
-q=(q+1)%playlist.length;
+ audio.src=playlist[i];
+ audio.play();
+ i=(i+1)%playlist.length;
 }
 
-audio.onended=()=>setTimeout(playNext,1200);
+audio.onended=()=>setTimeout(playNext,1000);
 
-// CRITICAL FIX: USER GESTURE UNLOCK
-function startSystem(){
-if(started) return;
-started=true;
-playNext();
-document.getElementById('popup').style.display='none';
+function startAudio(){
+ if(started) return;
+ started=true;
+ playNext();
+ document.querySelector('.start-btn').style.display='none';
 }
-
-// fallback click unlock
-document.addEventListener('click',()=>{
-if(!started){startSystem();}
-},{once:true});
 
 </script></body>
 </html>
