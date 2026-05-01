@@ -45,9 +45,7 @@ font-size:18px;
 font-weight:800;
 }
 
-.lang-bar{
-margin-top:10px;
-}
+.lang-bar{margin-top:10px;}
 
 select{
 padding:8px 12px;
@@ -207,6 +205,7 @@ color:#22c55e;
 0%{transform:translateX(0);}
 100%{transform:translateX(-100%);}
 }
+
 </style></head><body><div class="bg" id="bg"></div>
 <div class="overlay"></div><nav>
 <h2>Musa Dan Yarima</h2><div class="lang-bar">
@@ -225,41 +224,28 @@ color:#22c55e;
 <div class="cta-note" id="note">⬇ CLICK TO CONTACT ⬇</div>
 <p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
 </div><div class="container"><div class="card">
-<h2>📿 Quran Audio (Select Surah)</h2>
-<select id="surahSelect" onchange="playSurah()" style="padding:10px;border-radius:10px;border:none;font-weight:700;">
-<option value="fatiha">Surah Al-Fatiha</option>
-<option value="ikhlas">Surah Al-Ikhlas</option>
-<option value="falaq">Surah Al-Falaq</option>
-<option value="nas">Surah An-Nas</option>
-</select>
-<p style="margin-top:10px;opacity:0.8">Audio will play automatically when selected (no text display)</p>
+<h2>📿 Quran Audio (Auto Recitation)</h2>
+<p>Tap anywhere once to enable continuous recitation</p>
 </div><div class="card">
-<h2 id="aboutT">About</h2>
-<p id="about">Trusted Islamic spiritual guidance and counseling.</p>
-</div><div class="card">
-<h2>Contact</h2>
-<a class="btn green" href="https://wa.me/2349125087454">WhatsApp 912</a><br>
-<a class="btn blue" href="https://wa.me/2348131920605">WhatsApp 813</a>
-</div>
-<div class="card">
 <h2>Premium Services</h2>
 <ul>
 <li>Malakan Dukiya daga Raffa</li>
 <li>Malaka Soyayya ko Aure</li>
-<li>Istikhara (Guidance Prayer)</li>
-<li>Wasan Loto Addu'a (Spiritual Support)</li>
-<li>General Islamic Counseling</li>
-<li>Protection & Baraka Prayer</li>
+<li>Istikhara Guidance</li>
+<li>Wasan Loto Addu'a</li>
+<li>Islamic Counseling</li>
+<li>Protection & Baraka</li>
 </ul>
 </div><div class="card">
 <h2>Email Contact</h2>
 <a class="btn green" href="mailto:musadanyarima@gmail.com">Send Email</a>
-</div></div>
-<div class="float">
+</div></div><div class="float">
 <a href="https://wa.me/2349125087454">💬 CHAT</a>
 </div><div class="ticker">
 <span>Amina Hassan - Helped • Ibrahim Yusuf - Solved • Fatima Ali - Guided • Mallam Musa Dan Yarima - Trusted Spiritual Support •</span>
-</div><script>
+</div><!-- AUDIO --><audio id="quranAudio"></audio>
+
+<script>
 const backgrounds=[
 "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80",
 "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80",
@@ -268,121 +254,51 @@ const backgrounds=[
 "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=1400&q=80",
 "https://images.unsplash.com/photo-1519817650390-64a93db511f5?auto=format&fit=crop&w=1400&q=80"
 ];
+
 let i=0;
 setInterval(()=>{
 document.getElementById('bg').style.backgroundImage=`url(${backgrounds[i]})`;
 i=(i+1)%backgrounds.length;
 },5000);
 
-function speak(text){
-let msg=new SpeechSynthesisUtterance(text);
-speechSynthesis.speak(msg);
-}
-
+// LANGUAGE + VOICE
 function changeLang(lang){
 const data={
-en:{title:"Mallam Musa Dan Yarima",subtitle:"Spiritual Guidance • Prayer Support • Life Counseling",note:"Click to Contact",about:"Trusted Islamic spiritual guidance." ,voice:"Assalamu Alaikum. Welcome to Mallam Musa Dan Yarima page. Contact on WhatsApp for more information."},
-ha:{title:"Mallam Musa Dan Yarima",subtitle:"Shawara • Addu'a • Taimako",note:"Danna domin tuntuɓa",about:"Mai bada shawara da addu'a.",voice:"Assalamu alaikum, barka da zuwa shafin Mallam Musa Dan Yarima, ku tuntube ni a WhatsApp don karin bayani."},
-fr:{title:"Mallam Musa Dan Yarima",subtitle:"Conseil • Prières • Aide",note:"Cliquez pour contacter",about:"Guide spirituel de confiance.",voice:"Bonjour, bienvenue sur la page de Mallam Musa Dan Yarima, contactez-moi sur WhatsApp pour plus d'informations."},
-ar:{title:"مالام موسى دان يارما",subtitle:"إرشاد • دعاء • دعم",note:"اضغط للتواصل",about:"مرشد روحي موثوق.",voice:"السلام عليكم، مرحبا بكم في صفحة مالام موسى دان يارما، تواصلوا معي عبر واتساب لمزيد من المعلومات."}
+ en:{title:"Mallam Musa Dan Yarima",subtitle:"Spiritual Guidance • Prayer Support • Life Counseling",note:"Click to Contact",voice:"Assalamu Alaikum. Welcome."},
+ ha:{title:"Mallam Musa Dan Yarima",subtitle:"Shawara • Addu'a • Taimako",note:"Danna domin tuntuɓa",voice:"Assalamu alaikum barka da zuwa shafin Mallam Musa Dan Yarima."},
+ fr:{title:"Mallam Musa Dan Yarima",subtitle:"Conseil • Prières • Aide",note:"Cliquez pour contacter",voice:"Bienvenue sur la page."},
+ ar:{title:"مالام موسى دان يارما",subtitle:"إرشاد • دعاء • دعم",note:"اضغط للتواصل",voice:"السلام عليكم ورحمة الله."}
 };
-
 let t=data[lang];
 document.getElementById('title').innerText=t.title;
 document.getElementById('subtitle').innerText=t.subtitle;
 document.getElementById('note').innerText=t.note;
-document.getElementById('about').innerText=t.about;
-speak(t.voice);
-}
-
-window.onload=()=>speak("Assalamu Alaikum. Welcome.");
-
-// QURAN AUDIO SYSTEM (VOICE ONLY)
-const surahs={
-fatiha:"In the name of Allah, the Most Gracious, the Most Merciful. All praise is due to Allah, Lord of the worlds. The Most Gracious, the Most Merciful. Master of the Day of Judgment. You alone we worship and You alone we ask for help. Guide us to the straight path.",
-ikhlas:"Say, He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent.",
-falaq:"Say, I seek refuge in the Lord of daybreak. From the evil of what He created. And from the evil of darkness when it settles.",
-nas:"Say, I seek refuge in the Lord of mankind. The Sovereign of mankind. The God of mankind. From the evil of the whisperer."
-};
-
-function playSurah(){
-let key=document.getElementById('surahSelect').value;
-let msg=new SpeechSynthesisUtterance(surahs[key]);
 speechSynthesis.cancel();
-speechSynthesis.speak(msg);
+speechSynthesis.speak(new SpeechSynthesisUtterance(t.voice));
 }
 
-window.addEventListener('load',()=>{
-setTimeout(()=>{
-let msg=new SpeechSynthesisUtterance("Assalamu Alaikum. Welcome to Mallam Musa Dan Yarima website.");
-speechSynthesis.speak(msg);
-},2000);
-});
-</script><!-- ULTRA PRO QURAN AUDIO ENGINE (HIDDEN AUTO MODE) --><audio id="quranAudio" style="display:none;"></audio>
-
-<script>
-// REAL QURAN AUDIO PLAYLIST (MISHARY AL-AFASY SAMPLE LINKS)
+// REAL QURAN AUTO (FIXED)
+const audio=document.getElementById("quranAudio");
 const playlist=[
-"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/001.mp3",
-"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/112.mp3",
-"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/113.mp3",
-"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/114.mp3"
-];
-
-let current=0;
-const audio=document.getElementById('quranAudio');
-
-function playNext(){
-if(current>=playlist.length){current=0;} 
-audio.src=playlist[current];
-audio.play();
-current++;
-}
-
-audio.addEventListener('ended',function(){
-setTimeout(playNext,1500);
-});
-
-window.addEventListener('load',function(){
-setTimeout(()=>{
-playNext();
-},4000);
-});
-
-// KEEP EXISTING VOICE GREETING BUT SILENTLY BACKED
-window.speechSynthesis.cancel();
-</script><!-- REAL QURAN AUTO RECITATION OVERRIDE (SURAH AL-JINN FIRST) --><script>
-// FORCE STOP TEXT-TO-SPEECH (DISABLE OLD SYSTEM)
-try{speechSynthesis.cancel();}catch(e){}
-
-const qAudio=document.getElementById('quranAudio');
-
-// SURAH AL-JINN FIRST (072) THEN AUTO CONTINUE NEXT SURAH
-// Using sequential surah audio stream (Arabic recitation)
-const qPlaylist=[
 "https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/072.mp3",
 "https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/073.mp3",
 "https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/074.mp3",
 "https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/075.mp3"
 ];
-
 let qi=0;
-function playQuranChain(){
-if(qi>=qPlaylist.length){qi=0;} // loop
-qAudio.src=qPlaylist[qi];
-qAudio.play().catch(()=>{});
-qi++;
+
+function playNext(){
+audio.src=playlist[qi];
+audio.play().catch(()=>{});
+qi=(qi+1)%playlist.length;
 }
 
-qAudio.addEventListener('ended',()=>{
-setTimeout(playQuranChain,1200);
-});
+audio.onended=()=>setTimeout(playNext,1200);
 
-// AUTO START ON LOAD (ARABIC RECITATION ONLY)
-window.addEventListener('load',()=>{
-setTimeout(()=>{
-playQuranChain();
-},3000);
-});
+// IMPORTANT: must user interaction
+function start(){playNext();document.removeEventListener("click",start);}
+document.addEventListener("click",start);
+
+setTimeout(()=>playNext(),3000);
 </script></body>
 </html>
