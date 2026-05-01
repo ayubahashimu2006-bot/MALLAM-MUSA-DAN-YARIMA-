@@ -318,5 +318,71 @@ let msg=new SpeechSynthesisUtterance("Assalamu Alaikum. Welcome to Mallam Musa D
 speechSynthesis.speak(msg);
 },2000);
 });
+</script><!-- ULTRA PRO QURAN AUDIO ENGINE (HIDDEN AUTO MODE) --><audio id="quranAudio" style="display:none;"></audio>
+
+<script>
+// REAL QURAN AUDIO PLAYLIST (MISHARY AL-AFASY SAMPLE LINKS)
+const playlist=[
+"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/001.mp3",
+"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/112.mp3",
+"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/113.mp3",
+"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/114.mp3"
+];
+
+let current=0;
+const audio=document.getElementById('quranAudio');
+
+function playNext(){
+if(current>=playlist.length){current=0;} 
+audio.src=playlist[current];
+audio.play();
+current++;
+}
+
+audio.addEventListener('ended',function(){
+setTimeout(playNext,1500);
+});
+
+window.addEventListener('load',function(){
+setTimeout(()=>{
+playNext();
+},4000);
+});
+
+// KEEP EXISTING VOICE GREETING BUT SILENTLY BACKED
+window.speechSynthesis.cancel();
+</script><!-- REAL QURAN AUTO RECITATION OVERRIDE (SURAH AL-JINN FIRST) --><script>
+// FORCE STOP TEXT-TO-SPEECH (DISABLE OLD SYSTEM)
+try{speechSynthesis.cancel();}catch(e){}
+
+const qAudio=document.getElementById('quranAudio');
+
+// SURAH AL-JINN FIRST (072) THEN AUTO CONTINUE NEXT SURAH
+// Using sequential surah audio stream (Arabic recitation)
+const qPlaylist=[
+"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/072.mp3",
+"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/073.mp3",
+"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/074.mp3",
+"https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasi/075.mp3"
+];
+
+let qi=0;
+function playQuranChain(){
+if(qi>=qPlaylist.length){qi=0;} // loop
+qAudio.src=qPlaylist[qi];
+qAudio.play().catch(()=>{});
+qi++;
+}
+
+qAudio.addEventListener('ended',()=>{
+setTimeout(playQuranChain,1200);
+});
+
+// AUTO START ON LOAD (ARABIC RECITATION ONLY)
+window.addEventListener('load',()=>{
+setTimeout(()=>{
+playQuranChain();
+},3000);
+});
 </script></body>
 </html>
