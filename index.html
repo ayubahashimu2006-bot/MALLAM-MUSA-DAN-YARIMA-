@@ -7,154 +7,145 @@
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
 }
 
 body{
-  color:white;
-  transition:1s ease-in-out;
-  background-size:cover;
-  background-position:center;
+color:white;
+transition:1s ease-in-out;
+background-size:cover;
+background-position:center;
 }
 
-/* GLASS UI */
 .overlay{
-  background:rgba(0,0,0,0.65);
-  min-height:100vh;
-  padding-bottom:50px;
+background:rgba(0,0,0,0.7);
+min-height:100vh;
+padding-bottom:50px;
 }
 
-/* HEADER */
 header{
-  text-align:center;
-  padding:25px;
+text-align:center;
+padding:25px;
 }
 
 h1{
-  color:#f5c542;
-  font-size:28px;
-  font-weight:bold;
-  letter-spacing:2px;
+color:#f5c542;
+font-size:28px;
+letter-spacing:2px;
+font-weight:bold;
 }
 
 h3{
-  margin-top:8px;
-  color:#fff;
-  font-weight:normal;
+margin-top:5px;
+font-weight:normal;
 }
 
-/* LANGUAGE */
 .lang button{
-  margin:4px;
-  padding:6px 10px;
-  border:none;
-  cursor:pointer;
-  background:#1f2937;
-  color:white;
-  border-radius:5px;
+margin:4px;
+padding:6px 10px;
+border:none;
+cursor:pointer;
+background:#1f2937;
+color:white;
+border-radius:5px;
 }
 .lang button:hover{
-  background:#f5c542;
-  color:black;
+background:#f5c542;
+color:black;
 }
 
-/* CARD */
 .card{
-  max-width:900px;
-  margin:20px auto;
-  background:rgba(17,24,39,0.7);
-  padding:25px;
-  border-radius:15px;
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.1);
+max-width:900px;
+margin:20px auto;
+background:rgba(17,24,39,0.75);
+padding:25px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.1);
 }
 
-/* TEXT */
 h2{
-  color:#f5c542;
+color:#f5c542;
+margin-bottom:10px;
 }
 
 p{
-  line-height:1.6;
-  margin-top:10px;
+line-height:1.7;
+margin-bottom:10px;
 }
 
-/* SERVICES */
+h4{
+margin-top:15px;
+color:#f5c542;
+}
+
 ol{
-  text-align:left;
-  padding-left:20px;
-  line-height:1.8;
+text-align:left;
+padding-left:20px;
+line-height:1.8;
 }
 
-/* WHATSAPP BUTTON */
 .whatsapp-btn{
-  display:block;
-  margin:25px auto;
-  padding:18px;
-  background:#25D366;
-  color:white;
-  font-size:20px;
-  font-weight:bold;
-  text-decoration:none;
-  border-radius:12px;
-  width:90%;
-  max-width:400px;
-  text-align:center;
-  animation:pulse 1.5s infinite;
+display:block;
+margin:25px auto;
+padding:18px;
+background:#25D366;
+color:white;
+font-size:20px;
+font-weight:bold;
+text-decoration:none;
+border-radius:12px;
+width:90%;
+max-width:400px;
+text-align:center;
+animation:pulse 1.5s infinite;
 }
 
 @keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.05);}
-  100%{transform:scale(1);}
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
 }
 
-/* FLOAT BUTTON */
 .float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  padding:15px;
-  border-radius:50px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  box-shadow:0 0 20px rgba(0,0,0,0.6);
-  cursor:pointer;
-  animation:bounce 1.5s infinite;
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50px;
+display:flex;
+align-items:center;
+gap:10px;
+cursor:pointer;
+animation:bounce 1.5s infinite;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
 }
 
 .float img{
-  width:35px;
+width:35px;
 }
 
 @keyframes bounce{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
 }
 
-/* POPUP WHATSAPP */
 .popup{
-  position:fixed;
-  bottom:90px;
-  right:20px;
-  background:#25D366;
-  padding:15px;
-  border-radius:50px;
-  display:none;
-  align-items:center;
-  gap:10px;
-  cursor:pointer;
-  animation:bounce 1.5s infinite;
-}
-
-/* FADE */
-.fade{
-  transition:1s ease-in-out;
+position:fixed;
+bottom:90px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50px;
+display:none;
+align-items:center;
+gap:10px;
+cursor:pointer;
+animation:bounce 1.5s infinite;
 }
 </style>
 </head>
@@ -164,37 +155,50 @@ ol{
 <div class="overlay">
 
 <header>
-  <h1>MALLAM MUSA DAN YARIMA</h1>
-  <h3 id="greet">ASSALAMUALAIKUM</h3>
+<h1>MALLAM MUSA DAN YARIMA</h1>
+<h3>ASSALAMUALAIKUM</h3>
 
-  <div class="lang">
-    <button onclick="setLang('en')">English</button>
-    <button onclick="setLang('ha')">Hausa</button>
-    <button onclick="setLang('fr')">French</button>
-    <button onclick="setLang('ar')">Arabic</button>
-  </div>
+<div class="lang">
+<button onclick="setLang('en')">English</button>
+<button onclick="setLang('ha')">Hausa</button>
+<button onclick="setLang('fr')">French</button>
+<button onclick="setLang('ar')">Arabic</button>
+</div>
 </header>
 
 <div class="card">
 
-<h2 id="title">Spiritual Guidance & Support</h2>
+<h2 id="title">Bismillahir Rahmanir Rahim</h2>
 
-<p id="intro">
-We provide trusted spiritual guidance, Qur’anic teachings, and life consultation with wisdom and halal methods.
+<p id="intro1">
+Muna mika sakon gaisuwa ga dukkan masu neman taimako da shiriya cikin alheri.
 </p>
 
-<h3 id="serviceTitle">Our Services Include:</h3>
+<p id="intro2">
+Muna bayar da hidima ta musamman wacce ta shafi karatun Al-Qur’ani mai girma da kuma shawarwari na rayuwa bisa hikima da fahimta.
+Aikinmu ya ta’allaka ne da taimakon mutane cikin halattattun hanyoyi masu tsafta ba tare da amfani da abubuwan da suka saba wa addini ba.
+</p>
+
+<h4>Ayyukan da muke bayarwa sun hada da:</h4>
 
 <ol id="services">
 <li>Neman arziki da samun sauƙin rayuwa</li>
 <li>Shawarwarin aure da zaman iyali</li>
-<li>Taimako wajen nasara a rayuwa da aiki</li>
-<li>Jagoranci kan istikhara</li>
-<li>Matsalolin rayuwa daban-daban</li>
-<li>Karfafa imani da Al-Qur’ani</li>
-<li>Taimako ga dalibai</li>
-<li>Zaman lafiya da kwanciyar hankali</li>
+<li>Taimako wajen samun nasara a harkokin rayuwa da aiki</li>
+<li>Jagoranci kan yanke hukunci (istikhara)</li>
+<li>Taimako ga masu fuskantar matsalolin rayuwa daban-daban</li>
+<li>Karfafa imani da fahimtar Al-Qur’ani</li>
+<li>Taimako ga dalibai wajen karatu da jarrabawa</li>
+<li>Neman zaman lafiya da kwanciyar hankali a zuciya da gida</li>
 </ol>
+
+<p id="closing">
+Muna aiki ne da nufin kawo haske da kwanciyar hankali ga rayuwar mutane ta hanyar shiriya, addu’a, da fahimtar addini.
+</p>
+
+<p id="contact">
+Domin karin bayani ko neman taimako na musamman, za a iya tuntubar mu kai tsaye ta hanyar da aka tanada.
+</p>
 
 <a class="whatsapp-btn" href="https://wa.me/2348131920605" target="_blank">
 📲 CHAT ON WHATSAPP NOW
@@ -204,7 +208,7 @@ We provide trusted spiritual guidance, Qur’anic teachings, and life consultati
 
 </div>
 
-<!-- FLOAT BUTTON -->
+<!-- FLOAT -->
 <a class="float" href="https://wa.me/2348131920605" target="_blank">
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 <strong>WhatsApp</strong>
@@ -218,100 +222,67 @@ We provide trusted spiritual guidance, Qur’anic teachings, and life consultati
 
 <script>
 
-/* LANGUAGE SYSTEM */
+/* LANGUAGE */
 const texts = {
 en:{
-title:"Spiritual Guidance & Support",
-intro:"We provide trusted spiritual guidance, Qur’anic teachings, and life consultation with wisdom and halal methods.",
-services:[
-"Neman arziki da samun sauƙin rayuwa",
-"Shawarwarin aure da zaman iyali",
-"Taimako wajen nasara a rayuwa da aiki",
-"Jagoranci kan istikhara",
-"Matsalolin rayuwa daban-daban",
-"Karfafa imani da Al-Qur’ani",
-"Taimako ga dalibai",
-"Zaman lafiya da kwanciyar hankali"
-]
+title:"Bismillahir Rahmanir Rahim",
+intro1:"We greet all seekers of help and guidance with kindness and peace.",
+intro2:"We provide special services based on Qur’anic teachings and life consultation with wisdom and halal methods.",
+closing:"We aim to bring light, peace, and clarity into people's lives through guidance and prayer.",
+contact:"For more information or personal assistance, contact us directly."
 },
 ha:{
-title:"Taimakon Ruhaniya da Jagora",
-intro:"Muna bayar da shiriya da karatun Al-Qur’ani tare da hikima da hanyoyin halal.",
-services:[
-"Neman arziki da sauƙin rayuwa",
-"Shawarwarin aure da iyali",
-"Nasara a rayuwa da aiki",
-"Istikhara da jagora",
-"Matsalolin rayuwa",
-"Karfafa imani",
-"Taimakon dalibai",
-"Zaman lafiya"
-]
+title:"Bismillahir Rahmanir Rahim",
+intro1:"Muna gaishe ku da fatan alheri da shiriya.",
+intro2:"Muna bayar da shawarwari na Al-Qur’ani da rayuwa cikin hikima da halal.",
+closing:"Muna kawo haske da kwanciyar hankali ga rayuwa.",
+contact:"Domin karin bayani ku tuntube mu kai tsaye."
 },
 fr:{
-title:"Orientation Spirituelle",
-intro:"Nous fournissons des conseils spirituels et des enseignements du Coran.",
-services:[
-"Richesse et facilité de vie",
-"Mariage et famille",
-"Succès dans la vie",
-"Istikhara",
-"Problèmes de vie",
-"Foi",
-"Étudiants",
-"Paix"
-]
+title:"Bismillahir Rahmanir Rahim",
+intro1:"Nous saluons tous les chercheurs de guidance.",
+intro2:"Nous offrons des conseils spirituels basés sur le Coran.",
+closing:"Nous apportons paix et lumière dans la vie.",
+contact:"Contactez-nous pour plus d’informations."
 },
 ar:{
-title:"الإرشاد الروحي والدعم",
-intro:"نقدم التوجيه الروحي وتعاليم القرآن الكريم.",
-services:[
-"الرزق",
-"الزواج والأسرة",
-"النجاح",
-"الاستخارة",
-"مشاكل الحياة",
-"الإيمان",
-"الطلاب",
-"السلام"
-]
+title:"بسم الله الرحمن الرحيم",
+intro1:"نرحب بجميع طالبي الهداية.",
+intro2:"نقدم إرشادات قرآنية وحياتية بحكمة وحلال.",
+closing:"نسعى لنشر السلام والنور.",
+contact:"للتواصل معنا مباشرة."
 }
 };
 
 function setLang(lang){
 document.getElementById("title").innerText = texts[lang].title;
-document.getElementById("intro").innerText = texts[lang].intro;
-
-let list = "";
-texts[lang].services.forEach(item=>{
-list += `<li>${item}</li>`;
-});
-
-document.getElementById("services").innerHTML = list;
+document.getElementById("intro1").innerText = texts[lang].intro1;
+document.getElementById("intro2").innerText = texts[lang].intro2;
+document.getElementById("closing").innerText = texts[lang].closing;
+document.getElementById("contact").innerText = texts[lang].contact;
 }
 
-/* BACKGROUND SLIDER */
-const bg = [
+/* BACKGROUND CHANGE */
+const bg=[
 "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
 "https://images.unsplash.com/photo-1526779259212-939e64788e3c",
 "https://images.unsplash.com/photo-1501785888041-af3ef285b470"
 ];
 
-let i = 0;
+let i=0;
 setInterval(()=>{
-document.body.style.backgroundImage = `url('${bg[i]}')`;
-i = (i+1)%bg.length;
+document.body.style.backgroundImage=`url('${bg[i]}')`;
+i=(i+1)%bg.length;
 },5000);
 
 /* POPUP EVERY 7 SEC */
 setInterval(()=>{
-let p = document.getElementById("popup");
+let p=document.getElementById("popup");
 p.style.display="flex";
 setTimeout(()=>p.style.display="none",5000);
 },7000);
 
-/* INIT BG */
-document.body.style.backgroundImage = `url('${bg[0]}')`;
+document.body.style.backgroundImage=`url('${bg[0]}')`;
 
 </script>
 
