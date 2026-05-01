@@ -2,123 +2,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mallam Musa Dan Yarima</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}body{ background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80'); background-size:cover;background-attachment:fixed;color:#fff;transition:.5s }
+<title>Mallam Musa Dan Yarima</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-nav{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;background:rgba(0,0,0,.4);backdrop-filter:blur(10px)} .controls{display:flex;gap:10px} select{padding:6px;border-radius:6px;border:none}
+body{
+background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-attachment:fixed;
+color:#fff;
+transition:1s;
+}
 
-/* HERO */ .hero{text-align:center;padding:100px 20px 50px;animation:fadeIn 1.5s ease} .hero h1{ font-size:48px; font-weight:800; text-transform:uppercase; letter-spacing:2px; background:linear-gradient(90deg,#22c55e,#0ea5e9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; } .hero p{opacity:.9;margin-top:12px;font-size:18px}
+/* NAV */
+nav{
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 20px;background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+}
 
-/* CONTAINER */ .container{max-width:1100px;margin:auto;padding:20px} .card{ background:rgba(255,255,255,.08); backdrop-filter:blur(14px); padding:22px;border-radius:18px;margin:18px 0; box-shadow:0 10px 30px rgba(0,0,0,.5); animation:fadeUp 1s ease }
+nav h2{font-size:18px;font-weight:600;}
 
-h2{margin-bottom:10px}
+/* HERO */
+.hero{
+text-align:center;
+padding:80px 20px 40px;
+animation:fadeIn 1.5s ease;
+}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.hero h1{font-size:42px;font-weight:700;}
+.hero p{opacity:0.85;margin-top:10px;}
 
-/* BUTTONS */ .btn{display:inline-block;background:#22c55e;color:#fff;padding:11px 16px;border-radius:10px;text-decoration:none;font-weight:600;margin-top:10px;transition:.3s} .btn:hover{transform:scale(1.08)} .btn.blue{background:#2563eb}
+/* CONTAINER */
+.container{max-width:1100px;margin:auto;padding:20px;}
 
-/* FLOAT BUTTONS */ .float{ position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px; animation:fadeIn 2s ease } .float a{ background:#22c55e; padding:12px 14px; border-radius:50px; text-decoration:none; color:#fff; font-weight:700; box-shadow:0 10px 25px rgba(0,0,0,.4); text-align:center; transition:.3s } .float a:hover{transform:scale(1.1)}
+/* CARD */
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(14px);
+padding:20px;
+border-radius:16px;
+margin:15px 0;
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
+transition:0.3s;
+}
 
-/* TESTIMONIAL SLIDER */ .slider{overflow:hidden} .slide-track{ display:flex;gap:20px; animation:scroll 25s linear infinite } .slider:hover .slide-track{animation-play-state:paused} .slide{min-width:280px;background:rgba(255,255,255,.1);padding:15px;border-radius:10px}
+.card:hover{
+transform:translateY(-6px) scale(1.01);
+}
 
-@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}} @keyframes fadeIn{from{opacity:0}to{opacity:1}} @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+/* BUTTON */
+.btn{
+display:inline-block;
+background:#22c55e;
+padding:10px 16px;
+border-radius:8px;
+color:#fff;
+text-decoration:none;
+margin-top:10px;
+font-weight:600;
+}
 
-footer{text-align:center;padding:20px;opacity:.7} </style>
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
 
-</head>
-<body><nav>
-<h3>MUSA DAN YARIMA</h3>
-<div class="controls">
-<select onchange="changeLang(this.value)">
-<option value="en">EN</option>
-<option value="ha">HA</option>
-<option value="fr">FR</option>
-<option value="ar">AR</option>
-</select>
-<select onchange="changeBg(this.value)">
-<option value="1">BG1</option>
-<option value="2">BG2</option>
-<option value="3">BG3</option>
-</select>
-</div>
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+margin-top:10px;
+}
+
+.gallery a{
+position:relative;
+overflow:hidden;
+border-radius:12px;
+}
+
+.gallery img{
+width:100%;
+height:230px;
+object-fit:cover;
+transition:0.5s;
+border-radius:12px;
+}
+
+.gallery a::after{
+content:"Chat on WhatsApp";
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+background:#22c55e;
+text-align:center;
+padding:10px;
+opacity:0;
+transition:0.3s;
+font-weight:600;
+}
+
+.gallery a:hover img{
+transform:scale(1.1);
+filter:brightness(0.6);
+}
+
+.gallery a:hover::after{
+opacity:1;
+}
+
+/* FLOAT BUTTON */
+.float{
+position:fixed;
+bottom:20px;
+right:20px;
+}
+
+.float a{
+background:#22c55e;
+padding:14px 16px;
+border-radius:50px;
+text-decoration:none;
+color:#fff;
+font-weight:bold;
+box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+/* POPUP */
+.popup{
+position:fixed;
+bottom:90px;
+right:20px;
+background:#111;
+padding:15px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+display:none;
+animation:fadeIn 0.5s;
+}
+
+.popup a{
+color:#22c55e;
+font-weight:600;
+text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+opacity:0.7;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+</style></head><body><nav>
+<h2>Musa Dan Yarima</h2>
 </nav><div class="hero">
-<h1 id="title">MALLAM MUSA DAN YARIMA</h1>
-<p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
+<h1>Mallam Musa Dan Yarima</h1>
+<p>Spiritual Guidance • Prayer Support • Life Counseling</p>
 </div><div class="container"><div class="card">
-<h2 id="aboutTitle">About</h2>
-<p id="about">A trusted spiritual guide offering prayers, counseling and guidance to people seeking peace and direction in life.</p>
-<p style="margin-top:10px;font-size:14px;opacity:.8">Serving clients with honesty, faith and dedication across Nigeria.</p>
+<h2>About</h2>
+<p>A trusted spiritual guide offering prayers, counseling and direction in life.</p>
 </div><div class="card">
-<h2 id="serviceTitle">Services</h2>
+<h2>Services</h2>
 <ul>
 <li>Spiritual Guidance</li>
 <li>Prayer Support</li>
-<li>Family Mediation</li>
+<li>Family Help</li>
 <li>Personal Counseling</li>
-<li>Islamic Prayer Support</li>
 </ul>
 </div><div class="card">
-<h2 id="prayerTitle">Daily Prayer</h2>
-<p style="margin-bottom:10px">Ya Allah grant us peace, protection, guidance and success. Ameen.</p>
-<p style="font-size:14px;opacity:.8">Qur'an Reminder: "Indeed, in the remembrance of Allah do hearts find rest."</p>
+<h2>Spiritual Works</h2><div class="gallery"><a href="https://wa.me/2349125087454?text=Hello%20I%20need%20your%20help" target="_blank">
+<img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=800&q=80">
+</a><a href="https://wa.me/2349125087454?text=Hello%20I%20need%20your%20help" target="_blank">
+<img src="https://images.unsplash.com/photo-1589758438368-0ad531db3366?auto=format&fit=crop&w=800&q=80">
+</a><a href="https://wa.me/2349125087454?text=Hello%20I%20need%20your%20help" target="_blank">
+<img src="https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?auto=format&fit=crop&w=800&q=80">
+</a></div>
 </div><div class="card grid">
 <div>
-<h2 id="contactTitle">Contact</h2>
-<a class="btn" href="https://wa.me/2349125087454">Chat WhatsApp (912)</a><br>
-<a class="btn" href="https://wa.me/2348131920605">Chat WhatsApp (813)</a><br>
-<a class="btn blue" href="tel:+2347067379998">Call Now</a><br>
-<a class="btn" href="mailto:musadanyarima@gmail.com">Send Email</a>
+<h2>Contact</h2>
+<a class="btn" href="https://wa.me/2349125087454">WhatsApp</a>
+</div><div>
+<h2>Mission</h2>
+<p>Helping people with faith, honesty and guidance.</p>
 </div>
-<div>
-<h2 id="missionTitle">Mission</h2>
-<p id="mission">To guide people with honesty, compassion and spiritual support.</p>
-</div>
-</div><div class="card">
-<h2 id="testTitle">Testimonials</h2>
-<div class="slider">
-<div class="slide-track">
-<div class="slide">Amina - He brought peace.</div>
-<div class="slide">Ibrahim - Solved family issues.</div>
-<div class="slide">Fatima - Very helpful.</div>
-<div class="slide">Usman - Life changed.</div>
-<div class="slide">Zainab - Found peace.</div>
-<div class="slide">Hassan - Strong support.</div>
-<div class="slide">Maryam - Honest.</div>
-<div class="slide">Aliyu - Family unity.</div>
-<div class="slide">Hafsat - Life changing.</div>
-<div class="slide">Yusuf - Recommended.</div>
-</div>
-</div>
-</div></div><div class="float">
-<a href="https://wa.me/2349125087454">💬 Chat (912)</a>
-<a href="https://wa.me/2348131920605">💬 Chat (813)</a>
+</div></div><!-- FLOAT --><div class="float">
+<a href="https://wa.me/2349125087454">💬 Chat</a>
+</div><!-- POPUP --><div class="popup" id="popup">
+Need help? 👉 <a href="https://wa.me/2349125087454">Chat on WhatsApp</a>
 </div><footer>© 2026 Mallam Musa Dan Yarima</footer><script>
-function changeBg(v){
-let imgs={
-1:"https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80",
-2:"https://images.unsplash.com/photo-1508020963102-c6c723be5764?auto=format&fit=crop&w=1400&q=80",
-3:"https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?auto=format&fit=crop&w=1400&q=80"
-};
-document.body.style.background="linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),url('"+imgs[v]+"')";
-}
+/* AUTO BACKGROUND */
+let images=[
+"https://images.unsplash.com/photo-1542810634-71277d95dcbb",
+"https://images.unsplash.com/photo-1508020963102-c6c723be5764",
+"https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea"
+];
 
-// auto background change
+let i=0;
+
 setInterval(()=>{
-let r=Math.floor(Math.random()*3)+1;
-changeBg(r);
-},10000);
+i=(i+1)%images.length;
+document.body.style.background=
+"linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.9)), url('"+images[i]+"?auto=format&fit=crop&w=1400&q=80')";
+},5000);
 
-function changeLang(l){
-const d={
-en:{title:"MALLAM MUSA DAN YARIMA",subtitle:"Spiritual Guidance • Prayer Support • Life Counseling"},
-ha:{title:"MALLAM MUSA DAN YARIMA",subtitle:"Shawara • Addu'a • Taimako"},
-fr:{title:"MALLAM MUSA DAN YARIMA",subtitle:"Conseil • Prières"},
-ar:{title:"الشيخ موسى",subtitle:"إرشاد • دعاء"}
-};
-document.getElementById('title').innerText=d[l].title;
-document.getElementById('subtitle').innerText=d[l].subtitle;
-}
+/* WHATSAPP POPUP */
+setTimeout(()=>{
+document.getElementById("popup").style.display="block";
+},6000);
 </script></body>
 </html>
