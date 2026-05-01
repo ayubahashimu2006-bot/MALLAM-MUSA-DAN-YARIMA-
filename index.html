@@ -1,248 +1,169 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mallam Musa Dan Yarima</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    color:white;
-    overflow-x:hidden;
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    transition:background-image 1s ease-in-out;
-}
-
-.overlay{
-    min-height:100vh;
-    background:linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85));
-}
-
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 30px;
-    backdrop-filter:blur(15px);
-    background:rgba(255,255,255,0.05);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    font-size:22px;
-    font-weight:700;
-}
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:30px 20px;
-}
-
-.hero{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    justify-content:center;
-    gap:40px;
-    padding:50px 0;
-}
-
-.image-box img{
-    width:280px;
-    height:280px;
-    object-fit:cover;
-    border-radius:25px;
-    border:4px solid rgba(255,255,255,0.2);
-    box-shadow:0 20px 50px rgba(0,0,0,0.5);
-    cursor:pointer;
-    transition:0.4s;
-}
-
-.image-box img:hover{
-    transform:scale(1.05);
-}
-
-.text-box{
-    max-width:550px;
-}
-
-.text-box h1{
-    font-size:45px;
-    margin-bottom:15px;
-}
-
-.text-box p{
-    font-size:18px;
-    opacity:0.9;
-    line-height:1.7;
-}
-
-.buttons{
-    margin-top:25px;
-}
-
-.btn{
-    display:inline-block;
-    padding:14px 22px;
-    margin-right:10px;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.whatsapp{
-    background:#25D366;
-    color:white;
-}
-
-.call{
-    background:#2563eb;
-    color:white;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
-    margin-top:40px;
-}
-
-.card{
-    background:rgba(255,255,255,0.07);
-    padding:25px;
-    border-radius:20px;
-    backdrop-filter:blur(12px);
-    box-shadow:0 10px 35px rgba(0,0,0,0.35);
-}
-
-.card h2{
-    margin-bottom:15px;
-    font-size:22px;
-}
-
-.card ul{
-    padding-left:18px;
-}
-
-.card li{
-    margin-bottom:10px;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    opacity:0.7;
-}
-</style>
-</head>
-<body>
-
-<div class="overlay">
-
-<nav>
-    <div class="logo">Mallam Musa Dan Yarima</div>
-</nav>
-
-<div class="container">
-
-    <section class="hero">
-        <div class="image-box">
-            <a href="https://wa.me/2349125087454" target="_blank">
-                <img src="data:image/jpeg;base64,PASTE_YOUR_BASE64_IMAGE_HERE" alt="Mallam Musa">
-            </a>
-        </div>
-
-        <div class="text-box">
-            <h1>Mallam Musa Dan Yarima</h1>
-            <p>
-                Spiritual Guidance • Prayer Support • Life Counseling.
-                Trusted by many for honest support, wisdom, and guidance.
-            </p>
-
-            <div class="buttons">
-                <a class="btn whatsapp" href="https://wa.me/2349125087454" target="_blank">Chat on WhatsApp</a>
-                <a class="btn call" href="tel:+2347067379998">Call Now</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="cards">
-        <div class="card">
-            <h2>About</h2>
-            <p>
-                A trusted spiritual guide offering counseling, prayers,
-                and personal support across Nigeria.
-            </p>
-        </div>
-
-        <div class="card">
-            <h2>Services</h2>
-            <ul>
-                <li>Spiritual Guidance</li>
-                <li>Prayer Support</li>
-                <li>Family Counseling</li>
-                <li>Islamic Advice</li>
-                <li>Life Direction</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>Daily Prayer</h2>
-            <p>
-                Ya Allah grant us peace, guidance, protection and success. Ameen.
-            </p>
-        </div>
-    </section>
-
-</div>
-
-<footer>
-    © 2026 Mallam Musa Dan Yarima
-</footer>
-
-</div>
-
-<script>
-const backgrounds = [
-'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80',
-'https://images.unsplash.com/photo-1508020963102-c6c723be5764?auto=format&fit=crop&w=1400&q=80',
-'https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?auto=format&fit=crop&w=1400&q=80'
-];
-
-let index = 0;
-
-function changeBackground(){
-    document.body.style.backgroundImage = `url('${backgrounds[index]}')`;
-    index = (index + 1) % backgrounds.length;
-}
-
-changeBackground();
-setInterval(changeBackground, 5000);
-
-// Auto WhatsApp popup after 5 seconds
-setTimeout(function(){
-    window.open("https://wa.me/2349125087454", "_blank");
-}, 5000);
-</script>
-
-</body>
-</html>
+<!DOCTYPE html><html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Mallam Musa Dan Yarima</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>  
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}  
+  
+body{  
+background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80');  
+background-size:cover;  
+background-attachment:fixed;  
+color:#fff;  
+transition:0.5s;  
+}  
+  
+nav{  
+display:flex;justify-content:space-between;align-items:center;  
+padding:15px 20px;background:rgba(0,0,0,0.4);backdrop-filter:blur(10px);  
+}  
+  
+nav h2{font-size:18px;}  
+  
+.controls{display:flex;gap:10px;align-items:center;}  
+  
+select,button{  
+padding:6px 8px;border-radius:6px;border:none;cursor:pointer;  
+}  
+  
+.hero{text-align:center;padding:80px 20px 40px;}  
+.hero h1{font-size:40px;}  
+.hero p{margin-top:10px;opacity:0.9;}  
+  
+.container{max-width:1100px;margin:auto;padding:20px;}  
+  
+.card{  
+background:rgba(255,255,255,0.08);  
+backdrop-filter:blur(12px);  
+padding:20px;border-radius:15px;margin:15px 0;  
+box-shadow:0 10px 30px rgba(0,0,0,0.4);  
+}  
+  
+h2{margin-bottom:10px;}  
+  
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}  
+  
+.btn{  
+display:inline-block;background:#22c55e;color:white;  
+padding:10px 15px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:10px;  
+}  
+  
+.btn.blue{background:#2563eb;}  
+  
+.float{  
+position:fixed;  
+bottom:20px;  
+right:20px;  
+display:flex;  
+flex-direction:column;  
+gap:10px;  
+}  
+  
+.float a{  
+background:#22c55e;  
+padding:12px 14px;  
+border-radius:50px;  
+text-decoration:none;  
+color:#fff;  
+font-weight:700;  
+box-shadow:0 10px 25px rgba(0,0,0,.4);  
+text-align:center;  
+}  
+  
+footer{text-align:center;padding:20px;opacity:0.7;}  
+  
+</style></head><body><nav>  
+<h2>Musa Dan Yarima</h2>  
+<div class="controls">  
+<select onchange="changeLang(this.value)">  
+<option value="en">EN</option>  
+<option value="ha">HA</option>  
+<option value="fr">FR</option>  
+<option value="ar">AR</option>  
+</select><select onchange="changeBg(this.value)">  
+<option value="1">Background 1</option>  
+<option value="2">Background 2</option>  
+<option value="3">Background 3</option>  
+</select>  
+</div>  
+</nav><div class="hero">  
+<h1 id="title">Mallam Musa Dan Yarima</h1>  
+<p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>  
+</div><div class="container"><div class="card">  
+<h2 id="aboutTitle">About</h2>  
+<p id="about">A trusted spiritual guide offering prayers, counseling and guidance to people seeking peace and direction in life.</p>  
+<p style="margin-top:10px;font-size:14px;opacity:.8">Serving clients with honesty, faith and dedication across Nigeria.</p>  
+<p id="about">A trusted spiritual guide offering prayers, counseling and guidance to people seeking peace and direction in life.</p>  
+</div><div class="card">  
+<h2 id="serviceTitle">Services</h2>  
+<ul id="services">  
+<li>Spiritual Guidance</li>  
+<li>Prayer Support</li>  
+<li>Family Mediation</li>  
+<li>Personal Counseling</li>  
+<li>Islamic Prayer Support</li>  
+</ul>  
+</div><div class="card">  
+<h2 id="prayerTitle">Daily Prayer</h2>  
+<p style="margin-bottom:10px">Ya Allah grant us peace, protection, guidance and success. Ameen.</p>  
+<p style="font-size:14px;opacity:.8">Qur'an Reminder: "Indeed, in the remembrance of Allah do hearts find rest."</p>  
+<p id="prayer">Ya Allah grant us peace, guidance and success. Ameen.</p>  
+</div><div class="card grid">  
+<div>  
+<h2 id="contactTitle">Contact</h2>  
+<a class="btn" href="https://wa.me/2349125087454">Chat on WhatsApp</a><br>  
+<a class="btn blue" href="tel:+2347067379998">Call Now</a><br>  
+<a class="btn" href="mailto:musadanyarima@gmail.com">Send Email</a>  
+</div><div>  
+<h2 id="missionTitle">Mission</h2>  
+<p id="mission">To guide people with honesty, compassion and spiritual support.</p>  
+</div>  
+</div><div class="card">  
+<h2 id="testTitle">Testimonials</h2>  
+<ul id="testimonials">  
+<li>Amina Hassan - He brought peace into my life.</li>  
+<li>Ibrahim Yusuf - Solved my family issues.</li>  
+<li>Fatima Ali - Very helpful and kind.</li>  
+<li>Usman Bello - Guidance changed my life.</li>  
+<li>Zainab Sani - I found clarity and peace.</li>  
+<li>Hassan Umar - Strong spiritual support.</li>  
+<li>Maryam Yusuf - Very respectful and honest.</li>  
+<li>Aliyu Musa - Helped my family unity.</li>  
+<li>Hafsat Abdullahi - Truly life changing.</li>  
+<li>Yusuf Ahmad - Highly recommended.</li>  
+</ul>  
+</div></div><div class="float">  
+<a href="https://wa.me/2349125087454">💬 Chat (912)</a>  
+<a href="https://wa.me/2348131920605">💬 Chat (813)</a>  
+</div><footer>© 2026 Mallam Musa Dan Yarima</footer><script>  
+function changeBg(val){  
+let imgs={  
+1:"https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80",  
+2:"https://images.unsplash.com/photo-1508020963102-c6c723be5764?auto=format&fit=crop&w=1400&q=80",  
+3:"https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?auto=format&fit=crop&w=1400&q=80"  
+};  
+document.body.style.background="linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)), url('"+imgs[val]+"')";  
+}  
+  
+function changeLang(lang){  
+const data={  
+ en:{title:"Mallam Musa Dan Yarima",subtitle:"Spiritual Guidance • Prayer Support • Life Counseling",aboutTitle:"About",about:"A trusted spiritual guide offering prayers, counseling and guidance to people seeking peace and direction in life.",serviceTitle:"Services",prayerTitle:"Daily Prayer",contactTitle:"Contact",missionTitle:"Mission",mission:"To guide people with honesty, compassion and spiritual support.",testTitle:"Testimonials"},  
+ ha:{title:"Mallam Musa Dan Yarima",subtitle:"Shawara • Addu'a • Taimakon Rayuwa",aboutTitle:"Game da Ni",about:"Mai bada shawara da addu'a ga masu neman kwanciyar hankali.",serviceTitle:"Ayyuka",prayerTitle:"Addu'a",contactTitle:"Tuntuɓa",missionTitle:"Manufa",mission:"Taimaka wa mutane cikin gaskiya.",testTitle:"Shaidu"},  
+ fr:{title:"Mallam Musa Dan Yarima",subtitle:"Conseil • Prières • Orientation",aboutTitle:"À propos",about:"Guide spirituel offrant soutien et conseils.",serviceTitle:"Services",prayerTitle:"Prière",contactTitle:"Contact",missionTitle:"Mission",mission:"Aider avec honnêteté.",testTitle:"Témoignages"},  
+ ar:{title:"الشيخ موسى",subtitle:"إرشاد • دعاء • دعم",aboutTitle:"حول",about:"مرشد روحي يقدم الدعم.",serviceTitle:"الخدمات",prayerTitle:"دعاء",contactTitle:"اتصال",missionTitle:"مهمتنا",mission:"مساعدة الناس بصدق.",testTitle:"آراء"}  
+};  
+  
+let t=data[lang];  
+document.getElementById('title').innerText=t.title;  
+document.getElementById('subtitle').innerText=t.subtitle;  
+document.getElementById('aboutTitle').innerText=t.aboutTitle;  
+document.getElementById('about').innerText=t.about;  
+document.getElementById('serviceTitle').innerText=t.serviceTitle;  
+document.getElementById('prayerTitle').innerText=t.prayerTitle;  
+document.getElementById('contactTitle').innerText=t.contactTitle;  
+document.getElementById('missionTitle').innerText=t.missionTitle;  
+document.getElementById('mission').innerText=t.mission;  
+document.getElementById('testTitle').innerText=t.testTitle;  
+}  
+</script></body>  
+</html>  
