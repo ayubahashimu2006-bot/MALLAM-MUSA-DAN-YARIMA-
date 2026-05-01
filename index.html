@@ -6,19 +6,31 @@
 <title>MALLAM MUSA DAN YARIMA</title>
 
 <style>
-body{
+*{
   margin:0;
-  font-family:Arial,sans-serif;
-  background:#070b14;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
   color:white;
+  transition:1s ease-in-out;
+  background-size:cover;
+  background-position:center;
+}
+
+/* GLASS UI */
+.overlay{
+  background:rgba(0,0,0,0.65);
+  min-height:100vh;
+  padding-bottom:50px;
 }
 
 /* HEADER */
 header{
-  padding:30px 15px;
   text-align:center;
-  background:#0f172a;
-  border-bottom:1px solid #222;
+  padding:25px;
 }
 
 h1{
@@ -28,10 +40,13 @@ h1{
   letter-spacing:2px;
 }
 
-/* LANG */
-.lang{
-  margin-top:10px;
+h3{
+  margin-top:8px;
+  color:#fff;
+  font-weight:normal;
 }
+
+/* LANGUAGE */
 .lang button{
   margin:4px;
   padding:6px 10px;
@@ -46,30 +61,32 @@ h1{
   color:black;
 }
 
-/* CONTAINER */
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:20px;
-}
-
+/* CARD */
 .card{
-  background:#111827;
+  max-width:900px;
+  margin:20px auto;
+  background:rgba(17,24,39,0.7);
   padding:25px;
-  border-radius:12px;
-  border:1px solid #222;
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.1);
 }
 
-/* TITLE */
+/* TEXT */
 h2{
   color:#f5c542;
+}
+
+p{
+  line-height:1.6;
+  margin-top:10px;
 }
 
 /* SERVICES */
 ol{
   text-align:left;
-  line-height:1.8;
   padding-left:20px;
+  line-height:1.8;
 }
 
 /* WHATSAPP BUTTON */
@@ -82,7 +99,7 @@ ol{
   font-size:20px;
   font-weight:bold;
   text-decoration:none;
-  border-radius:10px;
+  border-radius:12px;
   width:90%;
   max-width:400px;
   text-align:center;
@@ -95,23 +112,7 @@ ol{
   100%{transform:scale(1);}
 }
 
-/* BLINK ARROW */
-.arrow{
-  font-size:30px;
-  color:#25D366;
-  animation:blink 1s infinite;
-}
-@keyframes blink{
-  50%{opacity:0;}
-}
-
-/* EMAIL */
-.email{
-  margin-top:10px;
-  color:#ccc;
-}
-
-/* FLOATING WHATSAPP POPUP */
+/* FLOAT BUTTON */
 .float{
   position:fixed;
   bottom:20px;
@@ -122,9 +123,9 @@ ol{
   display:flex;
   align-items:center;
   gap:10px;
-  animation:bounce 1.5s infinite;
-  cursor:pointer;
   box-shadow:0 0 20px rgba(0,0,0,0.6);
+  cursor:pointer;
+  animation:bounce 1.5s infinite;
 }
 
 .float img{
@@ -135,71 +136,184 @@ ol{
   0%,100%{transform:translateY(0);}
   50%{transform:translateY(-10px);}
 }
+
+/* POPUP WHATSAPP */
+.popup{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:#25D366;
+  padding:15px;
+  border-radius:50px;
+  display:none;
+  align-items:center;
+  gap:10px;
+  cursor:pointer;
+  animation:bounce 1.5s infinite;
+}
+
+/* FADE */
+.fade{
+  transition:1s ease-in-out;
+}
 </style>
 </head>
 
 <body>
 
+<div class="overlay">
+
 <header>
   <h1>MALLAM MUSA DAN YARIMA</h1>
+  <h3 id="greet">ASSALAMUALAIKUM</h3>
 
   <div class="lang">
-    <button>English</button>
-    <button>Hausa</button>
-    <button>French</button>
-    <button>Arabic</button>
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('ha')">Hausa</button>
+    <button onclick="setLang('fr')">French</button>
+    <button onclick="setLang('ar')">Arabic</button>
   </div>
 </header>
 
-<div class="container">
-
 <div class="card">
 
-<h2>Bismillahir Rahmanir Rahim</h2>
+<h2 id="title">Spiritual Guidance & Support</h2>
 
-<p>
-Muna mika sakon gaisuwa ga dukkan masu neman taimako da shiriya cikin alheri.
-Muna bayar da hidima ta musamman wacce ta shafi karatun Al-Qur’ani mai girma da kuma shawarwari na rayuwa bisa hikima da fahimta.
-Aikinmu ya ta’allaka ne da taimakon mutane cikin halattattun hanyoyi masu tsafta ba tare da amfani da abubuwan da suka saba wa addini ba.
+<p id="intro">
+We provide trusted spiritual guidance, Qur’anic teachings, and life consultation with wisdom and halal methods.
 </p>
 
-<h3>Ayyukan da muke bayarwa sun hada da:</h3>
+<h3 id="serviceTitle">Our Services Include:</h3>
 
-<ol>
+<ol id="services">
 <li>Neman arziki da samun sauƙin rayuwa</li>
 <li>Shawarwarin aure da zaman iyali</li>
-<li>Taimako wajen samun nasara a harkokin rayuwa da aiki</li>
-<li>Jagoranci kan yanke hukunci (istikhara)</li>
-<li>Taimako ga masu fuskantar matsalolin rayuwa daban-daban</li>
-<li>Karfafa imani da fahimtar Al-Qur’ani</li>
-<li>Taimako ga dalibai wajen karatu da jarrabawa</li>
-<li>Neman zaman lafiya da kwanciyar hankali a zuciya da gida</li>
+<li>Taimako wajen nasara a rayuwa da aiki</li>
+<li>Jagoranci kan istikhara</li>
+<li>Matsalolin rayuwa daban-daban</li>
+<li>Karfafa imani da Al-Qur’ani</li>
+<li>Taimako ga dalibai</li>
+<li>Zaman lafiya da kwanciyar hankali</li>
 </ol>
-
-<p>
-Muna aiki ne da nufin kawo haske da kwanciyar hankali ga rayuwar mutane ta hanyar shiriya, addu’a, da fahimtar addini.
-</p>
-
-<h3>📞 Domin karin bayani ko taimako:</h3>
-
-<div class="arrow">⬇⬇⬇ CLICK BELOW ⬇⬇⬇</div>
 
 <a class="whatsapp-btn" href="https://wa.me/2348131920605" target="_blank">
 📲 CHAT ON WHATSAPP NOW
 </a>
 
-<div class="email">
-📧 musadanyarima@gmail.com
 </div>
 
 </div>
-</div>
 
-<!-- FLOATING WHATSAPP -->
+<!-- FLOAT BUTTON -->
 <a class="float" href="https://wa.me/2348131920605" target="_blank">
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 <strong>WhatsApp</strong>
 </a>
+
+<!-- POPUP -->
+<div class="popup" id="popup" onclick="window.open('https://wa.me/2348131920605')">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="35">
+<strong>Message Us</strong>
+</div>
+
+<script>
+
+/* LANGUAGE SYSTEM */
+const texts = {
+en:{
+title:"Spiritual Guidance & Support",
+intro:"We provide trusted spiritual guidance, Qur’anic teachings, and life consultation with wisdom and halal methods.",
+services:[
+"Neman arziki da samun sauƙin rayuwa",
+"Shawarwarin aure da zaman iyali",
+"Taimako wajen nasara a rayuwa da aiki",
+"Jagoranci kan istikhara",
+"Matsalolin rayuwa daban-daban",
+"Karfafa imani da Al-Qur’ani",
+"Taimako ga dalibai",
+"Zaman lafiya da kwanciyar hankali"
+]
+},
+ha:{
+title:"Taimakon Ruhaniya da Jagora",
+intro:"Muna bayar da shiriya da karatun Al-Qur’ani tare da hikima da hanyoyin halal.",
+services:[
+"Neman arziki da sauƙin rayuwa",
+"Shawarwarin aure da iyali",
+"Nasara a rayuwa da aiki",
+"Istikhara da jagora",
+"Matsalolin rayuwa",
+"Karfafa imani",
+"Taimakon dalibai",
+"Zaman lafiya"
+]
+},
+fr:{
+title:"Orientation Spirituelle",
+intro:"Nous fournissons des conseils spirituels et des enseignements du Coran.",
+services:[
+"Richesse et facilité de vie",
+"Mariage et famille",
+"Succès dans la vie",
+"Istikhara",
+"Problèmes de vie",
+"Foi",
+"Étudiants",
+"Paix"
+]
+},
+ar:{
+title:"الإرشاد الروحي والدعم",
+intro:"نقدم التوجيه الروحي وتعاليم القرآن الكريم.",
+services:[
+"الرزق",
+"الزواج والأسرة",
+"النجاح",
+"الاستخارة",
+"مشاكل الحياة",
+"الإيمان",
+"الطلاب",
+"السلام"
+]
+}
+};
+
+function setLang(lang){
+document.getElementById("title").innerText = texts[lang].title;
+document.getElementById("intro").innerText = texts[lang].intro;
+
+let list = "";
+texts[lang].services.forEach(item=>{
+list += `<li>${item}</li>`;
+});
+
+document.getElementById("services").innerHTML = list;
+}
+
+/* BACKGROUND SLIDER */
+const bg = [
+"https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+"https://images.unsplash.com/photo-1526779259212-939e64788e3c",
+"https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+];
+
+let i = 0;
+setInterval(()=>{
+document.body.style.backgroundImage = `url('${bg[i]}')`;
+i = (i+1)%bg.length;
+},5000);
+
+/* POPUP EVERY 7 SEC */
+setInterval(()=>{
+let p = document.getElementById("popup");
+p.style.display="flex";
+setTimeout(()=>p.style.display="none",5000);
+},7000);
+
+/* INIT BG */
+document.body.style.backgroundImage = `url('${bg[0]}')`;
+
+</script>
 
 </body>
 </html>
