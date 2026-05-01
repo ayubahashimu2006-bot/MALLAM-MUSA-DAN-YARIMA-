@@ -21,28 +21,46 @@ background-position:center;
 }
 
 .overlay{
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.75);
 min-height:100vh;
-padding-bottom:50px;
+padding-bottom:60px;
 }
 
+/* HEADER */
 header{
 text-align:center;
-padding:25px;
+padding:20px;
 }
 
 h1{
 color:#f5c542;
 font-size:28px;
 letter-spacing:2px;
-font-weight:bold;
 }
 
 h3{
 margin-top:5px;
-font-weight:normal;
+color:#fff;
 }
 
+/* ISLAMIC STICKERS */
+.badges{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:10px;
+flex-wrap:wrap;
+}
+
+.badge{
+background:rgba(255,255,255,0.1);
+padding:8px 12px;
+border-radius:20px;
+font-size:12px;
+border:1px solid rgba(255,255,255,0.2);
+}
+
+/* LANGUAGE */
 .lang button{
 margin:4px;
 padding:6px 10px;
@@ -51,12 +69,14 @@ cursor:pointer;
 background:#1f2937;
 color:white;
 border-radius:5px;
+transition:0.3s;
 }
 .lang button:hover{
 background:#f5c542;
 color:black;
 }
 
+/* CARD */
 .card{
 max-width:900px;
 margin:20px auto;
@@ -65,6 +85,16 @@ padding:25px;
 border-radius:15px;
 backdrop-filter:blur(10px);
 border:1px solid rgba(255,255,255,0.1);
+}
+
+/* ANIMATED TEXT */
+.fade{
+animation:fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1; transform:translateY(0);}
 }
 
 h2{
@@ -77,17 +107,14 @@ line-height:1.7;
 margin-bottom:10px;
 }
 
-h4{
-margin-top:15px;
-color:#f5c542;
-}
-
+/* SERVICES */
 ol{
 text-align:left;
 padding-left:20px;
 line-height:1.8;
 }
 
+/* WHATSAPP BUTTON */
 .whatsapp-btn{
 display:block;
 margin:25px auto;
@@ -110,6 +137,7 @@ animation:pulse 1.5s infinite;
 100%{transform:scale(1);}
 }
 
+/* FLOAT */
 .float{
 position:fixed;
 bottom:20px;
@@ -134,6 +162,7 @@ width:35px;
 50%{transform:translateY(-10px);}
 }
 
+/* POPUP */
 .popup{
 position:fixed;
 bottom:90px;
@@ -154,9 +183,15 @@ animation:bounce 1.5s infinite;
 
 <div class="overlay">
 
-<header>
+<header class="fade">
 <h1>MALLAM MUSA DAN YARIMA</h1>
-<h3>ASSALAMUALAIKUM</h3>
+<h3 id="greet">ASSALAMUALAIKUM</h3>
+
+<div class="badges">
+<div class="badge">🕋 KAABA INSPIRED</div>
+<div class="badge">📖 QUR’AN GUIDANCE</div>
+<div class="badge">🌙 ISLAMIC SUPPORT</div>
+</div>
 
 <div class="lang">
 <button onclick="setLang('en')">English</button>
@@ -166,39 +201,19 @@ animation:bounce 1.5s infinite;
 </div>
 </header>
 
-<div class="card">
+<div class="card fade">
 
 <h2 id="title">Bismillahir Rahmanir Rahim</h2>
 
-<p id="intro1">
-Muna mika sakon gaisuwa ga dukkan masu neman taimako da shiriya cikin alheri.
-</p>
+<p id="intro1"></p>
+<p id="intro2"></p>
 
-<p id="intro2">
-Muna bayar da hidima ta musamman wacce ta shafi karatun Al-Qur’ani mai girma da kuma shawarwari na rayuwa bisa hikima da fahimta.
-Aikinmu ya ta’allaka ne da taimakon mutane cikin halattattun hanyoyi masu tsafta ba tare da amfani da abubuwan da suka saba wa addini ba.
-</p>
+<h4 id="serviceTitle">Ayyukan da muke bayarwa sun hada da:</h4>
 
-<h4>Ayyukan da muke bayarwa sun hada da:</h4>
+<ol id="services"></ol>
 
-<ol id="services">
-<li>Neman arziki da samun sauƙin rayuwa</li>
-<li>Shawarwarin aure da zaman iyali</li>
-<li>Taimako wajen samun nasara a harkokin rayuwa da aiki</li>
-<li>Jagoranci kan yanke hukunci (istikhara)</li>
-<li>Taimako ga masu fuskantar matsalolin rayuwa daban-daban</li>
-<li>Karfafa imani da fahimtar Al-Qur’ani</li>
-<li>Taimako ga dalibai wajen karatu da jarrabawa</li>
-<li>Neman zaman lafiya da kwanciyar hankali a zuciya da gida</li>
-</ol>
-
-<p id="closing">
-Muna aiki ne da nufin kawo haske da kwanciyar hankali ga rayuwar mutane ta hanyar shiriya, addu’a, da fahimtar addini.
-</p>
-
-<p id="contact">
-Domin karin bayani ko neman taimako na musamman, za a iya tuntubar mu kai tsaye ta hanyar da aka tanada.
-</p>
+<p id="closing"></p>
+<p id="contact"></p>
 
 <a class="whatsapp-btn" href="https://wa.me/2348131920605" target="_blank">
 📲 CHAT ON WHATSAPP NOW
@@ -222,51 +237,104 @@ Domin karin bayani ko neman taimako na musamman, za a iya tuntubar mu kai tsaye 
 
 <script>
 
-/* LANGUAGE */
+/* FULL LANGUAGE SYSTEM */
 const texts = {
 en:{
+greet:"ASSALAMUALAIKUM",
 title:"Bismillahir Rahmanir Rahim",
 intro1:"We greet all seekers of help and guidance with kindness and peace.",
-intro2:"We provide special services based on Qur’anic teachings and life consultation with wisdom and halal methods.",
-closing:"We aim to bring light, peace, and clarity into people's lives through guidance and prayer.",
-contact:"For more information or personal assistance, contact us directly."
+intro2:"We provide Qur’anic teachings and life guidance with wisdom and halal methods.",
+services:[
+"Seeking wealth and financial ease",
+"Marriage and family guidance",
+"Success in life and work",
+"Istikhara guidance",
+"Solving life problems",
+"Strengthening faith and Qur’an understanding",
+"Helping students in studies",
+"Peace of heart and home"
+],
+closing:"We aim to bring peace, light, and clarity through guidance and prayer.",
+contact:"For more information, contact us directly."
 },
 ha:{
+greet:"ASSALAMUALAIKUM",
 title:"Bismillahir Rahmanir Rahim",
 intro1:"Muna gaishe ku da fatan alheri da shiriya.",
-intro2:"Muna bayar da shawarwari na Al-Qur’ani da rayuwa cikin hikima da halal.",
+intro2:"Muna bayar da karatun Al-Qur’ani da shawarwari cikin halal.",
+services:[
+"Neman arziki da sauƙin rayuwa",
+"Aure da zaman iyali",
+"Nasara a rayuwa da aiki",
+"Istikhara",
+"Matsalolin rayuwa",
+"Karfafa imani",
+"Taimakon dalibai",
+"Zaman lafiya"
+],
 closing:"Muna kawo haske da kwanciyar hankali ga rayuwa.",
-contact:"Domin karin bayani ku tuntube mu kai tsaye."
+contact:"Domin karin bayani ku tuntube mu."
 },
 fr:{
+greet:"ASSALAMUALAIKUM",
 title:"Bismillahir Rahmanir Rahim",
 intro1:"Nous saluons tous les chercheurs de guidance.",
-intro2:"Nous offrons des conseils spirituels basés sur le Coran.",
-closing:"Nous apportons paix et lumière dans la vie.",
+intro2:"Nous offrons des conseils basés sur le Coran.",
+services:[
+"Richesse",
+"Mariage",
+"Succès",
+"Istikhara",
+"Problèmes",
+"Foi",
+"Étudiants",
+"Paix"
+],
+closing:"Nous apportons paix et lumière.",
 contact:"Contactez-nous pour plus d’informations."
 },
 ar:{
+greet:"السلام عليكم",
 title:"بسم الله الرحمن الرحيم",
 intro1:"نرحب بجميع طالبي الهداية.",
-intro2:"نقدم إرشادات قرآنية وحياتية بحكمة وحلال.",
-closing:"نسعى لنشر السلام والنور.",
+intro2:"نقدم إرشادات قرآنية وحياتية.",
+services:[
+"الرزق",
+"الزواج",
+"النجاح",
+"الاستخارة",
+"المشاكل",
+"الإيمان",
+"الطلاب",
+"السلام"
+],
+closing:"نسعى لنشر النور والسلام.",
 contact:"للتواصل معنا مباشرة."
 }
 };
 
 function setLang(lang){
-document.getElementById("title").innerText = texts[lang].title;
-document.getElementById("intro1").innerText = texts[lang].intro1;
-document.getElementById("intro2").innerText = texts[lang].intro2;
-document.getElementById("closing").innerText = texts[lang].closing;
-document.getElementById("contact").innerText = texts[lang].contact;
+
+document.getElementById("greet").innerText=texts[lang].greet;
+document.getElementById("title").innerText=texts[lang].title;
+document.getElementById("intro1").innerText=texts[lang].intro1;
+document.getElementById("intro2").innerText=texts[lang].intro2;
+document.getElementById("closing").innerText=texts[lang].closing;
+document.getElementById("contact").innerText=texts[lang].contact;
+
+/* SERVICES */
+let list="";
+texts[lang].services.forEach(s=>{
+list+=`<li>${s}</li>`;
+});
+document.getElementById("services").innerHTML=list;
 }
 
-/* BACKGROUND CHANGE */
+/* BACKGROUND ROTATION */
 const bg=[
-"https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-"https://images.unsplash.com/photo-1526779259212-939e64788e3c",
-"https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+"https://images.unsplash.com/photo-1519817650390-64a93db51149",
+"https://images.unsplash.com/photo-1529655683826-aba9b3e77383",
+"https://images.unsplash.com/photo-1506744038136-46273834b3fb"
 ];
 
 let i=0;
