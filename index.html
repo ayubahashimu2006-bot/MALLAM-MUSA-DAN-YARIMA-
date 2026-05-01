@@ -43,10 +43,19 @@ z-index:20;
 nav h2{
 font-size:18px;
 font-weight:800;
-letter-spacing:1px;
 }
 
-/* ULTRA CTA BUTTONS */
+.lang-bar{
+margin-top:10px;
+}
+
+select{
+padding:8px 12px;
+border-radius:10px;
+border:none;
+font-weight:700;
+}
+
 .cta-wrap{
 display:flex;
 gap:12px;
@@ -64,22 +73,20 @@ border-radius:50px;
 text-decoration:none;
 font-weight:800;
 color:#fff;
-position:relative;
-overflow:hidden;
 animation:pulse 2s infinite;
 box-shadow:0 0 25px rgba(34,197,94,0.4);
 }
 
 .cta.green{
 background:linear-gradient(270deg,#16a34a,#22c55e,#4ade80);
-background-size:400% 400%;
 animation:gradient 5s ease infinite,pulse 2s infinite;
+background-size:400% 400%;
 }
 
 .cta.blue{
 background:linear-gradient(270deg,#1d4ed8,#2563eb,#60a5fa);
-background-size:400% 400%;
 animation:gradient 5s ease infinite,pulse 2s infinite;
+background-size:400% 400%;
 }
 
 @keyframes gradient{
@@ -95,8 +102,8 @@ animation:gradient 5s ease infinite,pulse 2s infinite;
 }
 
 .arrow{
-font-weight:900;
 animation:updown 0.7s infinite;
+font-weight:900;
 }
 
 @keyframes updown{
@@ -152,7 +159,7 @@ display:inline-block;
 padding:10px 15px;
 border-radius:10px;
 text-decoration:none;
-font-weight:700;
+font-weight:800;
 color:#fff;
 margin-top:10px;
 }
@@ -176,17 +183,16 @@ color:#fff;
 font-weight:800;
 }
 
-/* TESTIMONIAL TICKER */
 .ticker{
 position:fixed;
 bottom:0;
 left:0;
 width:100%;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,0.85);
 overflow:hidden;
 white-space:nowrap;
 z-index:50;
-padding:10px 0;
+padding:10px;
 }
 
 .ticker span{
@@ -201,43 +207,36 @@ color:#22c55e;
 0%{transform:translateX(0);}
 100%{transform:translateX(-100%);}
 }
-
 </style></head><body><div class="bg" id="bg"></div>
 <div class="overlay"></div><nav>
-<h2>Musa Dan Yarima</h2><div class="cta-wrap">
-<a class="cta green" href="https://wa.me/2349125087454">
-<span class="arrow">⬆⬇</span> CHAT 912
-</a>
-<a class="cta blue" href="https://wa.me/2348131920605">
-<span class="arrow">⬆⬇</span> CHAT 813
-</a>
+<h2>Musa Dan Yarima</h2><div class="lang-bar">
+<select onchange="changeLang(this.value)">
+<option value="en">English</option>
+<option value="ha">Hausa</option>
+<option value="fr">French</option>
+<option value="ar">Arabic</option>
+</select>
+</div><div class="cta-wrap">
+<a class="cta green" href="https://wa.me/2349125087454"><span class="arrow">⬆⬇</span> WhatsApp 912</a>
+<a class="cta blue" href="https://wa.me/2348131920605"><span class="arrow">⬆⬇</span> WhatsApp 813</a>
 </div>
 </nav><div class="hero">
-<h1>Mallam Musa Dan Yarima</h1><div class="cta-note">⬇ CLICK BUTTONS ABOVE OR BELOW TO CONTACT ⬇</div><p>Spiritual Guidance • Prayer Support • Life Counseling</p>
-</div><div class="container"><div class="card">
-<h2>About</h2>
-<p>Trusted Islamic spiritual guidance and counseling services.</p>
-</div><div class="card">
-<h2>Services</h2>
-<ul>
-<li>Prayer Support</li>
-<li>Spiritual Guidance</li>
-<li>Family Problem Solution</li>
-<li>Baraka & Guidance</li>
-</ul>
-</div><div class="card">
-<h2>Special Note</h2>
-<p>“Mallakan soyyaya ko Aure mallakan dukiya daga raffanai”</p>
+<h1 id="title">Mallam Musa Dan Yarima</h1>
+<div class="cta-note" id="note">⬇ CLICK TO CONTACT ⬇</div>
+<p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
+</div><div class="container">
+<div class="card">
+<h2 id="aboutT">About</h2>
+<p id="about">Trusted Islamic spiritual guidance and counseling.</p>
 </div><div class="card">
 <h2>Contact</h2>
 <a class="btn green" href="https://wa.me/2349125087454">WhatsApp 912</a><br>
 <a class="btn blue" href="https://wa.me/2348131920605">WhatsApp 813</a>
-</div></div><div class="float">
+</div>
+</div><div class="float">
 <a href="https://wa.me/2349125087454">💬 CHAT</a>
 </div><div class="ticker">
-<span>
-Amina Hassan - Peace restored • Ibrahim Yusuf - Family solved • Fatima Ali - Very helpful • Usman Bello - Life changed • Zainab Sani - Guidance received • Mallam Musa Dan Yarima - Trusted spiritual support •
-</span>
+<span>Amina Hassan - Helped • Ibrahim Yusuf - Solved • Fatima Ali - Guided • Mallam Musa Dan Yarima - Trusted Spiritual Support •</span>
 </div><script>
 const backgrounds=[
 "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80",
@@ -247,13 +246,33 @@ const backgrounds=[
 "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=1400&q=80",
 "https://images.unsplash.com/photo-1519817650390-64a93db511f5?auto=format&fit=crop&w=1400&q=80"
 ];
-
 let i=0;
-function rotateBg(){
+setInterval(()=>{
 document.getElementById('bg').style.backgroundImage=`url(${backgrounds[i]})`;
 i=(i+1)%backgrounds.length;
+},5000);
+
+function speak(text){
+let msg=new SpeechSynthesisUtterance(text);
+speechSynthesis.speak(msg);
 }
-setInterval(rotateBg,5000);
-rotateBg();
+
+function changeLang(lang){
+const data={
+en:{title:"Mallam Musa Dan Yarima",subtitle:"Spiritual Guidance • Prayer Support • Life Counseling",note:"Click to Contact",about:"Trusted Islamic spiritual guidance." ,voice:"Assalamu Alaikum. Welcome to Mallam Musa Dan Yarima page. Contact on WhatsApp for more information."},
+ha:{title:"Mallam Musa Dan Yarima",subtitle:"Shawara • Addu'a • Taimako",note:"Danna domin tuntuɓa",about:"Mai bada shawara da addu'a.",voice:"Assalamu alaikum, barka da zuwa shafin Mallam Musa Dan Yarima, ku tuntube ni a WhatsApp don karin bayani."},
+fr:{title:"Mallam Musa Dan Yarima",subtitle:"Conseil • Prières • Aide",note:"Cliquez pour contacter",about:"Guide spirituel de confiance.",voice:"Bonjour, bienvenue sur la page de Mallam Musa Dan Yarima, contactez-moi sur WhatsApp pour plus d'informations."},
+ar:{title:"مالام موسى دان يارما",subtitle:"إرشاد • دعاء • دعم",note:"اضغط للتواصل",about:"مرشد روحي موثوق.",voice:"السلام عليكم، مرحبا بكم في صفحة مالام موسى دان يارما، تواصلوا معي عبر واتساب لمزيد من المعلومات."}
+};
+
+let t=data[lang];
+document.getElementById('title').innerText=t.title;
+document.getElementById('subtitle').innerText=t.subtitle;
+document.getElementById('note').innerText=t.note;
+document.getElementById('about').innerText=t.about;
+speak(t.voice);
+}
+
+window.onload=()=>speak("Assalamu Alaikum. Welcome.");
 </script></body>
 </html>
