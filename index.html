@@ -225,12 +225,14 @@ color:#22c55e;
 <div class="cta-note" id="note">⬇ CLICK TO CONTACT ⬇</div>
 <p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
 </div><div class="container"><div class="card">
-<h2>📖 Surah Al-Jinn (Start Reading)</h2>
-<p><b>In the Name of Allah, the Most Gracious, the Most Merciful</b></p>
-<p>1. Say, [O Muhammad], "It has been revealed to me that a group of the jinn listened and said..."</p>
-<p>2. "Indeed, we have heard a marvelous Qur'an."</p>
-<p>3. "It guides to the right path, so we believed in it..."</p>
-<p style="margin-top:10px;opacity:0.8">(Auto spiritual reminder for guidance and protection)</p>
+<h2>📿 Quran Audio (Select Surah)</h2>
+<select id="surahSelect" onchange="playSurah()" style="padding:10px;border-radius:10px;border:none;font-weight:700;">
+<option value="fatiha">Surah Al-Fatiha</option>
+<option value="ikhlas">Surah Al-Ikhlas</option>
+<option value="falaq">Surah Al-Falaq</option>
+<option value="nas">Surah An-Nas</option>
+</select>
+<p style="margin-top:10px;opacity:0.8">Audio will play automatically when selected (no text display)</p>
 </div><div class="card">
 <h2 id="aboutT">About</h2>
 <p id="about">Trusted Islamic spiritual guidance and counseling.</p>
@@ -295,16 +297,26 @@ speak(t.voice);
 
 window.onload=()=>speak("Assalamu Alaikum. Welcome.");
 
-// SURAH AUTO VOICE READING
-function speakSurah(){
-let text="Surah Al Jinn. In the name of Allah, the Most Gracious, the Most Merciful. Say it has been revealed to me that a group of jinn listened. Indeed we have heard a marvelous Quran. It guides to the right path.";
-let msg=new SpeechSynthesisUtterance(text);
+// QURAN AUDIO SYSTEM (VOICE ONLY)
+const surahs={
+fatiha:"In the name of Allah, the Most Gracious, the Most Merciful. All praise is due to Allah, Lord of the worlds. The Most Gracious, the Most Merciful. Master of the Day of Judgment. You alone we worship and You alone we ask for help. Guide us to the straight path.",
+ikhlas:"Say, He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent.",
+falaq:"Say, I seek refuge in the Lord of daybreak. From the evil of what He created. And from the evil of darkness when it settles.",
+nas:"Say, I seek refuge in the Lord of mankind. The Sovereign of mankind. The God of mankind. From the evil of the whisperer."
+};
+
+function playSurah(){
+let key=document.getElementById('surahSelect').value;
+let msg=new SpeechSynthesisUtterance(surahs[key]);
+speechSynthesis.cancel();
 speechSynthesis.speak(msg);
 }
 
-window.addEventListener('load',function(){
-setTimeout(speakSurah,3000);
+window.addEventListener('load',()=>{
+setTimeout(()=>{
+let msg=new SpeechSynthesisUtterance("Assalamu Alaikum. Welcome to Mallam Musa Dan Yarima website.");
+speechSynthesis.speak(msg);
+},2000);
 });
-
 </script></body>
 </html>
