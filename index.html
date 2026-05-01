@@ -2,7 +2,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mallam Musa Dan Yarima</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
+<title>Mallam Musa Dan Yarima</title>
+<meta name="description" content="Islamic spiritual guidance, prayer support and counseling services in Nigeria. Contact Mallam Musa Dan Yarima via WhatsApp instantly.">
+<meta name="keywords" content="Islamic guidance, prayer, counseling, Nigeria, WhatsApp contact, spiritual help">
+<meta property="og:title" content="Mallam Musa Dan Yarima">
+<meta property="og:description" content="Spiritual guidance and counseling - click to chat on WhatsApp instantly."><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
 body{
@@ -177,16 +181,92 @@ animation:blink 1s infinite;
 text-shadow:0 0 10px rgba(34,197,94,0.8);
 }
 
-</style></head><body><div class="bg" id="bg"></div>
-<div class="overlay"></div><nav>
-<h2>Musa Dan Yarima</h2><div class="cta-wrap">
+/* ULTRA PRO MODAL + EFFECTS */
+.cta-hero{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:10px;
+margin-top:15px;
+}
+
+.cta-hero .arrows{
+font-size:18px;
+font-weight:800;
+letter-spacing:2px;
+color:#22c55e;
+animation:blink 1s infinite;
+text-shadow:0 0 10px rgba(34,197,94,0.8);
+}
+
+.glow-pulse{
+animation:pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow{
+0%{transform:scale(1);filter:brightness(1);}
+50%{transform:scale(1.05);filter:brightness(1.3);}
+100%{transform:scale(1);filter:brightness(1);}
+}
+
+/* MODAL */
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.75);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.modal-content{
+background:rgba(0,0,0,0.85);
+padding:25px;
+border-radius:15px;
+text-align:center;
+max-width:300px;
+box-shadow:0 0 25px rgba(34,197,94,0.6);
+animation:pop 0.5s ease;
+}
+
+@keyframes pop{
+from{transform:scale(0.5);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+.modal button{
+margin-top:10px;
+padding:10px 15px;
+border:none;
+border-radius:10px;
+background:#22c55e;
+color:#fff;
+font-weight:700;
+cursor:pointer;
+}
+
+
+</head>
+
+<body>
+
+<div class="bg" id="bg"></div>
+<div class="overlay"></div>
+
+<nav>
+<h2>Musa Dan Yarima</h2>
+
+<div class="cta-wrap">
 <a class="cta green" href="https://wa.me/2349125087454">
 <span class="arrow">⬇</span> WhatsApp 912
 </a>
 <a class="cta blue" href="https://wa.me/2348131920605">
 <span class="arrow">⬇</span> WhatsApp 813
 </a>
-</div><div class="lang">
+</div>
+
+<div class="lang">
 <select onchange="changeLang(this.value)">
 <option value="en">EN</option>
 <option value="ha">HA</option>
@@ -194,9 +274,15 @@ text-shadow:0 0 10px rgba(34,197,94,0.8);
 <option value="ar">AR</option>
 </select>
 </div>
-</nav><div class="hero">
-<h1 id="title">Mallam Musa Dan Yarima</h1><div class="cta-hero">
-<div class="arrows">⬇⬇⬇ WATCH & CONTACT ⬇⬇⬇</div><div class="cta-wrap">
+</nav>
+
+<div class="hero">
+<h1 id="title">Mallam Musa Dan Yarima</h1>
+
+<div class="cta-hero">
+<div class="arrows">⬇⬇⬇ WATCH & CONTACT ⬇⬇⬇</div>
+
+<div class="cta-wrap">
 <a class="cta green" href="https://wa.me/2349125087454">
 <span class="arrow">⬇</span> WhatsApp 912
 </a>
@@ -204,11 +290,19 @@ text-shadow:0 0 10px rgba(34,197,94,0.8);
 <span class="arrow">⬇</span> WhatsApp 813
 </a>
 </div>
-</div><p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
-</div><div class="container"><div class="card">
+</div>
+
+<p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
+</div>
+
+<div class="container">
+
+<div class="card">
 <h2 id="aboutTitle">About</h2>
 <p id="about">A trusted spiritual guide offering prayers and counseling.</p>
-</div><div class="card">
+</div>
+
+<div class="card">
 <h2 id="serviceTitle">Services</h2>
 <ul>
 <li>Spiritual Guidance</li>
@@ -217,10 +311,14 @@ text-shadow:0 0 10px rgba(34,197,94,0.8);
 <li>Personal Counseling</li>
 <li>Islamic Prayer Support</li>
 </ul>
-</div><div class="card">
+</div>
+
+<div class="card">
 <h2 id="prayerTitle">Daily Prayer</h2>
 <p>Ya Allah grant us peace, guidance and success. Ameen.</p>
-</div><div class="card grid">
+</div>
+
+<div class="card grid">
 <div>
 <h2>Contact</h2>
 <a class="btn green" href="https://wa.me/2349125087454">WhatsApp Chat</a><br>
@@ -231,16 +329,26 @@ text-shadow:0 0 10px rgba(34,197,94,0.8);
 <h2 id="missionTitle">Mission</h2>
 <p id="mission">To guide people with honesty and spiritual support.</p>
 </div>
-</div><div class="card">
+</div>
+
+<div class="card">
 <h2 id="testTitle">Testimonials</h2>
 <ul>
 <li>Amina Hassan - Peace restored</li>
 <li>Ibrahim Yusuf - Family solved</li>
 <li>Fatima Ali - Very helpful</li>
 </ul>
-</div></div><div class="float">
+</div>
+
+</div>
+
+<div class="float">
 <a href="https://wa.me/2349125087454">💬 Chat</a>
-</div><footer>© 2026 Mallam Musa Dan Yarima</footer><script>
+</div>
+
+<footer>© 2026 Mallam Musa Dan Yarima</footer>
+
+<script>
 const backgrounds=[
 "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80",
 "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80",
@@ -272,5 +380,24 @@ let el=document.getElementById(k);
 if(el)el.innerText=x[k];
 }
 }
-</script></body>
-</html>
+// ULTRA PRO POPUP WHATSAPP
+function showModal(){
+document.getElementById('waModal').style.display='flex';
+}
+
+function closeModal(){
+document.getElementById('waModal').style.display='none';
+}
+
+setTimeout(showModal,4000);
+</script><!-- WHATSAPP MODAL --><div class="modal" id="waModal">
+  <div class="modal-content glow-pulse">
+    <h2>💬 Need Help?</h2>
+    <p>Click below to chat on WhatsApp instantly</p>
+    <a class="cta green" href="https://wa.me/2349125087454">Chat Now 912</a><br>
+    <a class="cta blue" href="https://wa.me/2348131920605">Chat Now 813</a><br>
+    <button onclick="closeModal()">Close</button>
+  </div>
+</div>
+</body>
+ </html>
