@@ -11,7 +11,6 @@ min-height:100vh;
 overflow-x:hidden;
 }
 
-/* animated background layer */
 .bg{
 position:fixed;
 top:0;left:0;
@@ -31,7 +30,7 @@ background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85));
 
 nav{
 display:flex;
-justify-content:space-between;
+flex-direction:column;
 align-items:center;
 padding:15px 20px;
 background:rgba(0,0,0,0.35);
@@ -39,9 +38,17 @@ backdrop-filter:blur(10px);
 position:sticky;
 top:0;
 z-index:10;
+text-align:center;
 }
 
-nav h2{font-size:16px;}
+nav h2{
+font-size:18px;
+letter-spacing:1px;
+}
+
+.lang{
+margin-top:8px;
+}
 
 select{
 padding:6px 10px;
@@ -49,9 +56,50 @@ border-radius:8px;
 border:none;
 }
 
+/* WhatsApp attention buttons */
+.cta-wrap{
+display:flex;
+gap:10px;
+margin-top:10px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.cta{
+display:flex;
+align-items:center;
+gap:8px;
+padding:10px 14px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+color:#fff;
+animation:colorPulse 3s infinite;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.cta.green{background:#22c55e;}
+.cta.blue{background:#2563eb;}
+
+.arrow{
+animation:blink 1s infinite;
+font-size:14px;
+}
+
+@keyframes blink{
+0%,100%{opacity:1;transform:translateY(0);}
+50%{opacity:0.3;transform:translateY(5px);}
+}
+
+@keyframes colorPulse{
+0%{filter:hue-rotate(0deg);}
+50%{filter:hue-rotate(40deg);}
+100%{filter:hue-rotate(0deg);}
+}
+
 .hero{
 text-align:center;
-padding:70px 20px 30px;
+padding:60px 20px 30px;
 }
 
 .hero h1{font-size:40px;}
@@ -98,9 +146,6 @@ position:fixed;
 bottom:20px;
 right:20px;
 z-index:20;
-display:flex;
-flex-direction:column;
-gap:10px;
 }
 
 .float a{
@@ -115,24 +160,57 @@ text-align:center;
 }
 
 footer{text-align:center;padding:20px;opacity:0.7;}
+.cta-hero{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:10px;
+margin-top:15px;
+}
+
+.cta-hero .arrows{
+font-size:18px;
+font-weight:800;
+letter-spacing:2px;
+color:#22c55e;
+animation:blink 1s infinite;
+text-shadow:0 0 10px rgba(34,197,94,0.8);
+}
+
 </style></head><body><div class="bg" id="bg"></div>
 <div class="overlay"></div><nav>
-<h2>Musa Dan Yarima</h2>
+<h2>Musa Dan Yarima</h2><div class="cta-wrap">
+<a class="cta green" href="https://wa.me/2349125087454">
+<span class="arrow">⬇</span> WhatsApp 912
+</a>
+<a class="cta blue" href="https://wa.me/2348131920605">
+<span class="arrow">⬇</span> WhatsApp 813
+</a>
+</div><div class="lang">
 <select onchange="changeLang(this.value)">
 <option value="en">EN</option>
 <option value="ha">HA</option>
 <option value="fr">FR</option>
 <option value="ar">AR</option>
 </select>
+</div>
 </nav><div class="hero">
-<h1 id="title">Mallam Musa Dan Yarima</h1>
-<p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
+<h1 id="title">Mallam Musa Dan Yarima</h1><div class="cta-hero">
+<div class="arrows">⬇⬇⬇ WATCH & CONTACT ⬇⬇⬇</div><div class="cta-wrap">
+<a class="cta green" href="https://wa.me/2349125087454">
+<span class="arrow">⬇</span> WhatsApp 912
+</a>
+<a class="cta blue" href="https://wa.me/2348131920605">
+<span class="arrow">⬇</span> WhatsApp 813
+</a>
+</div>
+</div><p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
 </div><div class="container"><div class="card">
 <h2 id="aboutTitle">About</h2>
-<p id="about">A trusted spiritual guide offering prayers, counseling and guidance.</p>
+<p id="about">A trusted spiritual guide offering prayers and counseling.</p>
 </div><div class="card">
 <h2 id="serviceTitle">Services</h2>
-<ul id="services">
+<ul>
 <li>Spiritual Guidance</li>
 <li>Prayer Support</li>
 <li>Family Mediation</li>
@@ -144,7 +222,7 @@ footer{text-align:center;padding:20px;opacity:0.7;}
 <p>Ya Allah grant us peace, guidance and success. Ameen.</p>
 </div><div class="card grid">
 <div>
-<h2 id="contactTitle">Contact</h2>
+<h2>Contact</h2>
 <a class="btn green" href="https://wa.me/2349125087454">WhatsApp Chat</a><br>
 <a class="btn blue" href="tel:+2347067379998">Call Now</a><br>
 <a class="btn green" href="mailto:musadanyarima@gmail.com">Email</a>
@@ -155,7 +233,7 @@ footer{text-align:center;padding:20px;opacity:0.7;}
 </div>
 </div><div class="card">
 <h2 id="testTitle">Testimonials</h2>
-<ul id="testimonials">
+<ul>
 <li>Amina Hassan - Peace restored</li>
 <li>Ibrahim Yusuf - Family solved</li>
 <li>Fatima Ali - Very helpful</li>
@@ -163,7 +241,6 @@ footer{text-align:center;padding:20px;opacity:0.7;}
 </div></div><div class="float">
 <a href="https://wa.me/2349125087454">💬 Chat</a>
 </div><footer>© 2026 Mallam Musa Dan Yarima</footer><script>
-// 6 Islamic-style backgrounds
 const backgrounds=[
 "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=80",
 "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=80",
@@ -175,20 +252,18 @@ const backgrounds=[
 
 let i=0;
 function rotateBg(){
-const bg=document.getElementById('bg');
-bg.style.backgroundImage=`url(${backgrounds[i]})`;
+document.getElementById('bg').style.backgroundImage=`url(${backgrounds[i]})`;
 i=(i+1)%backgrounds.length;
 }
 setInterval(rotateBg,5000);
 rotateBg();
 
-// language system (full)
 function changeLang(lang){
 const t={
- en:{title:"Mallam Musa Dan Yarima",subtitle:"Spiritual Guidance • Prayer Support • Life Counseling",about:"A trusted spiritual guide offering prayers and counseling.",serviceTitle:"Services",aboutTitle:"About",prayerTitle:"Daily Prayer",contactTitle:"Contact",missionTitle:"Mission",mission:"To guide people with honesty.",testTitle:"Testimonials"},
- ha:{title:"Mallam Musa Dan Yarima",subtitle:"Shawara • Addu'a • Taimako",about:"Mai bada shawara da addu'a.",serviceTitle:"Ayyuka",aboutTitle:"Game da Ni",prayerTitle:"Addu'a",contactTitle:"Tuntuɓa",missionTitle:"Manufa",mission:"Taimako cikin gaskiya.",testTitle:"Shaidu"},
- fr:{title:"Mallam Musa Dan Yarima",subtitle:"Conseil • Prières • Support",about:"Guide spirituel de confiance.",serviceTitle:"Services",aboutTitle:"À propos",prayerTitle:"Prière",contactTitle:"Contact",missionTitle:"Mission",mission:"Aider avec honnêteté.",testTitle:"Témoignages"},
- ar:{title:"الشيخ موسى",subtitle:"إرشاد • دعاء • دعم",about:"مرشد روحي موثوق.",serviceTitle:"الخدمات",aboutTitle:"حول",prayerTitle:"دعاء",contactTitle:"اتصال",missionTitle:"مهمة",mission:"مساعدة الناس بصدق.",testTitle:"آراء"}
+ en:{title:"Mallam Musa Dan Yarima",subtitle:"Spiritual Guidance • Prayer Support • Life Counseling",about:"A trusted spiritual guide offering prayers and counseling.",serviceTitle:"Services",aboutTitle:"About",prayerTitle:"Daily Prayer",mission:"To guide people with honesty.",testTitle:"Testimonials"},
+ ha:{title:"Mallam Musa Dan Yarima",subtitle:"Shawara • Addu'a • Taimako",about:"Mai bada shawara da addu'a.",serviceTitle:"Ayyuka",aboutTitle:"Game da Ni",prayerTitle:"Addu'a",mission:"Taimako cikin gaskiya.",testTitle:"Shaidu"},
+ fr:{title:"Mallam Musa Dan Yarima",subtitle:"Conseil • Prières • Support",about:"Guide spirituel.",serviceTitle:"Services",aboutTitle:"À propos",prayerTitle:"Prière",mission:"Aider avec honnêteté.",testTitle:"Témoignages"},
+ ar:{title:"الشيخ موسى",subtitle:"إرشاد • دعاء • دعم",about:"مرشد روحي.",serviceTitle:"الخدمات",aboutTitle:"حول",prayerTitle:"دعاء",mission:"مساعدة الناس بصدق.",testTitle:"آراء"}
 };
 
 let x=t[lang];
