@@ -224,8 +224,14 @@ color:#22c55e;
 <h1 id="title">Mallam Musa Dan Yarima</h1>
 <div class="cta-note" id="note">⬇ CLICK TO CONTACT ⬇</div>
 <p id="subtitle">Spiritual Guidance • Prayer Support • Life Counseling</p>
-</div><div class="container">
-<div class="card">
+</div><div class="container"><div class="card">
+<h2>📖 Surah Al-Jinn (Start Reading)</h2>
+<p><b>In the Name of Allah, the Most Gracious, the Most Merciful</b></p>
+<p>1. Say, [O Muhammad], "It has been revealed to me that a group of the jinn listened and said..."</p>
+<p>2. "Indeed, we have heard a marvelous Qur'an."</p>
+<p>3. "It guides to the right path, so we believed in it..."</p>
+<p style="margin-top:10px;opacity:0.8">(Auto spiritual reminder for guidance and protection)</p>
+</div><div class="card">
 <h2 id="aboutT">About</h2>
 <p id="about">Trusted Islamic spiritual guidance and counseling.</p>
 </div><div class="card">
@@ -288,5 +294,17 @@ speak(t.voice);
 }
 
 window.onload=()=>speak("Assalamu Alaikum. Welcome.");
+
+// SURAH AUTO VOICE READING
+function speakSurah(){
+let text="Surah Al Jinn. In the name of Allah, the Most Gracious, the Most Merciful. Say it has been revealed to me that a group of jinn listened. Indeed we have heard a marvelous Quran. It guides to the right path.";
+let msg=new SpeechSynthesisUtterance(text);
+speechSynthesis.speak(msg);
+}
+
+window.addEventListener('load',function(){
+setTimeout(speakSurah,3000);
+});
+
 </script></body>
 </html>
